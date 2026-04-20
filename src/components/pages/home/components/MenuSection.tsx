@@ -69,24 +69,34 @@ const MenuSection = ({ data }: Props) => {
   ];
 
   return (
-    <div className="border-4 border-red-500 h-screen">
+    <div className="relative h-screen overflow-hidden border-4 border-red-500">
+      {/* Background Image */}
       <ImageComponent
         src={menuBg}
-        alt="..."
-        className="w-full h-auto object-cover"
-      />
-      <HighlightHeading
-        text="Menu & Pricing"
-        highlight={["Menu"]}
-        highlightClassName="text-primary text-center"
+        alt="background"
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
-      <div className="w-[50vw]">
-        <div className="center-box">
-          <div className="animated-border-box-glow"></div>
-          <div className="animated-border-box"></div>
+      {/* Dark overlay (important for readability) */}
+      <div className="absolute inset-0 bg-black/40" />
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full">
+        <HighlightHeading
+          text="Menu & Pricing"
+          highlight={["Menu"]}
+          highlightClassName="text-primary text-center"
+        />
+
+        {/* Glow Card Container */}
+        <div className="w-[50vw] flex justify-center mt-10">
+          <div className="center-box">
+            <div className="animated-border-box-glow"></div>
+            <div className="animated-border-box"></div>
+          </div>
         </div>
       </div>
+
       {/* <MenuCard>
         <h3 className="text-xl font-bold mb-4 text-center">
           Hibachef Packages
