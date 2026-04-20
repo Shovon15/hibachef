@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #081212;
+
+  --primary: #e4002b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* --font-dmSansBold: var(--font-dmSansBold);
+  --font-mono: var(--font-geist-mono); */
+}
+/* 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* font */
+.font-dmSans {
+  font-family: var(--font-dmSans);
+}
+.font-myriadPro {
+  font-family: var(--font-myriadPro);
+}
+.font-boldCond {
+  font-family: var(--font-boldCond);
+}
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+.font-manrope {
+  font-family: var(--font-manrope);
+}
+.font-inter {
+  font-family: var(--font-inter);
+}
+
+/* color */
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.wave-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 2px;
+  border-radius: 50%;
+  background-color: #4d4d4d;
+  animation: waveBounce 1.4s infinite ease-in-out;
+}
+
+.wave-dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.wave-dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.wave-dot:nth-child(3) {
+  animation-delay: 0s;
+}
+
+/* Keyframes for bouncing effect */
+@keyframes waveBounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+}
+
+@layer base {
+  button {
+    @apply cursor-pointer;
+  }
+}
+
+/* globals.css */
+.custom-scrollbar {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+}
+
+/* Desktop + Android (WebKit-based) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(179, 170, 170, 0.4);
+  border-radius: 9999px;
+}
+
+/* Firefox (desktop only) */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 154, 154, 0.4) transparent;
+}
+
+.loader {
+  display: inline-block;
+  position: relative;
+  border-radius: 50%;
+  background: linear-gradient(0deg, rgba(255, 61, 0, 0.2) 33%, #e4002b 100%);
+  box-sizing: border-box;
+
+  /* ✅ important */
+  animation: rotation 1s linear infinite;
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  inset: 2px; /* cleaner than translate */
+  border-radius: 50%;
+  background: #0c0c0c;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-soft {
+  animation: fadeSoft 2s ease-in-out infinite;
+}
+
+@keyframes fadeSoft {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.88);
+  }
+}

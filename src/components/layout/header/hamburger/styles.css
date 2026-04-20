@@ -1,0 +1,57 @@
+/* The parent button controls the size. This SVG fills it. */
+.menuIcon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  transition: transform 400ms;
+}
+
+.menuIcon--rotate.is-open {
+  transform: rotate(45deg);
+}
+
+.menuIcon__line {
+  fill: none;
+  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  stroke: #ffffff;
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+/* v8 (same as your ham8 values, renamed) */
+.menuIcon--v8 .menuIcon__line--top {
+  stroke-dasharray: 40 160;
+}
+
+.menuIcon--v8 .menuIcon__line--middle {
+  stroke-dasharray: 40 142;
+  transform-origin: 50%;
+  transition: transform 400ms;
+}
+
+.menuIcon--v8 .menuIcon__line--bottom {
+  stroke-dasharray: 40 85;
+  transform-origin: 50%;
+  transition: transform 400ms, stroke-dashoffset 400ms;
+}
+
+/* Open state animations */
+.menuIcon--v8.is-open .menuIcon__line--top {
+  stroke-dashoffset: -64px;
+}
+
+.menuIcon--v8.is-open .menuIcon__line--middle {
+  transform: rotate(90deg);
+}
+
+.menuIcon--v8.is-open .menuIcon__line--bottom {
+  stroke-dashoffset: -64px;
+}
+
+/* Bottom line slightly shorter when CLOSED */
+.menuIcon--v8.is-closed .menuIcon__line--bottom {
+  stroke-dasharray: 25 85; /* tweak 28 to taste (26/30 etc.) */
+}

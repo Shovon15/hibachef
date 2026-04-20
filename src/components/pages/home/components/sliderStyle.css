@@ -1,0 +1,24 @@
+.my-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #2e3030;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin: 0 4px;
+}
+
+.my-bullet-active {
+  background: #f73219;
+  transform: scale(1.1);
+}
+
+.swiper-wrapper {
+  pointer-events: none;
+}
+
+.swiper-slide {
+  pointer-events: auto;
+}
+
