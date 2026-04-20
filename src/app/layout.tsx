@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { DmSans, MyriadPro, BoldCond, poppins, manrope, inter } from "./font";
+import { CooperBlack } from "./font";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import SmoothScroll from "@/components/layout/container/SmoothScroll";
@@ -31,9 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${DmSans.variable} ${MyriadPro.variable} ${BoldCond.variable} ${poppins.variable} ${manrope.variable} ${inter.variable} antialiased`}
-      >
+      <body className={`${CooperBlack.variable}  antialiased`}>
         <Suspense fallback={<Fallback />}>
           <ReduxProvider>
             <SmoothScroll>

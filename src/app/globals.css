@@ -29,23 +29,8 @@ body {
 }
 
 /* font */
-.font-dmSans {
-  font-family: var(--font-dmSans);
-}
-.font-myriadPro {
-  font-family: var(--font-myriadPro);
-}
-.font-boldCond {
-  font-family: var(--font-boldCond);
-}
-.font-poppins {
-  font-family: var(--font-poppins);
-}
-.font-manrope {
-  font-family: var(--font-manrope);
-}
-.font-inter {
-  font-family: var(--font-inter);
+.font-cooperBlack {
+  font-family: var(--font-cooperBlack);
 }
 
 /* color */
