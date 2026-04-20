@@ -7,6 +7,7 @@ import { HighlightHeading } from "@/components/common/typography/HighlightHeadin
 import MenuSection from "./components/MenuSection";
 import DiningSection from "./components/DiningSection";
 import LocationSection from "./components/LocationSection";
+import ImageComponent from "@/components/common/image";
 
 type Props = {
   data?: any;

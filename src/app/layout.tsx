@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { CooperBlack } from "./font";
+import { CooperBlack, GraphikTrial } from "./font";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 import SmoothScroll from "@/components/layout/container/SmoothScroll";
@@ -31,7 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${CooperBlack.variable}  antialiased`}>
+      <body
+        className={`${CooperBlack.variable} ${GraphikTrial.variable}  antialiased`}
+      >
         <Suspense fallback={<Fallback />}>
           <ReduxProvider>
             <SmoothScroll>

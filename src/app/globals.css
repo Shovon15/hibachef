@@ -32,6 +32,9 @@ body {
 .font-cooperBlack {
   font-family: var(--font-cooperBlack);
 }
+.font-graphikTrial {
+  font-family: var(--font-graphikTrial);
+}
 
 /* color */
 .text-primary {

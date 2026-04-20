@@ -1,15 +1,18 @@
-import { Inter, Poppins, Manrope } from "next/font/google";
 import localFont from "next/font/local";
-
-export const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const CooperBlack = localFont({
   src: [{ path: "./COOPBL.ttf", weight: "400", style: "normal" }],
   variable: "--font-cooperBlack",
+  display: "swap",
+});
+
+export const GraphikTrial = localFont({
+  src: [
+    { path: "./Graphik-Regular-Trial.otf", weight: "400", style: "normal" },
+    { path: "./Graphik-Medium-Trial.otf", weight: "500", style: "normal" },
+    { path: "./Graphik-Semibold-Trial.otf", weight: "600", style: "normal" },
+  ],
+  variable: "--font-graphikTrial",
   display: "swap",
 });
 
@@ -25,18 +28,6 @@ export const CooperBlack = localFont({
 //   variable: "--font-manrope",
 //   display: "swap",
 // });
-
-// export const DmSans = localFont({
-//   src: [
-//     { path: "./DMSans-Bold.ttf", weight: "700", style: "normal" },
-//     { path: "./DMSans-SemiBold.ttf", weight: "600", style: "normal" },
-//     { path: "./DMSans-Light.ttf", weight: "300", style: "normal" },
-//   ],
-//   variable: "--font-dmSans",
-//   display: "swap",
-// });
-
-
 
 // export const BoldCond = localFont({
 //   src: [

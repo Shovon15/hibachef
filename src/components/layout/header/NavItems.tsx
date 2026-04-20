@@ -41,17 +41,17 @@ const NavItems = ({ navItems }: Props) => {
         return (
           <div
             key={item.slug}
-            className="relative"
+            className="relative my-auto"
             onMouseEnter={() => hasChildren && setOpenDropdown(index)}
             onMouseLeave={() => hasChildren && setOpenDropdown(null)}
           >
             <NavLink
               href={linkPath}
               className={cn(
-                "relative z-20 px-5 py-1 xl:px-5 xl:py-2 h-full flex items-center justify-center cursor-pointer font-medium text-sm transition-nav duration-200 ease-smooth whitespace-nowrap group leading-[22px] text-[14px] lg:text-[23px] text-foreground font-boldCond uppercase",
+                "relative z-20 px-5 py-1 xl:px-5 xl:py-2 h-[52px] flex items-center justify-center cursor-pointer font-graphikTrial font-bold text-sm transition-nav duration-200 ease-smooth whitespace-nowrap group leading-[22px] text-[14px] lg:text-[20px] uppercase rounded-full",
                 isActive
-                  ? "text-foreground bg-primary" // Active style
-                  : "hover:text-foreground hover:bg-[#E1251B]", // Hover style
+                  ? "text-primary bg-primary" // Active style
+                  : "hover:text-foreground hover:bg-[#F5F5F5]", // Hover style
               )}
             >
               {item.title}
