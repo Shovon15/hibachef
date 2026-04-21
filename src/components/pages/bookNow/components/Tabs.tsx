@@ -21,19 +21,23 @@ const Tabs = ({ steps, currentStep, setCurrentStep }: Props) => {
                 <div className="flex flex-col items-center">
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm border-2 ${
-                      isCompleted || isActive
-                        ? " border-[#E4002B]  text-[#E4002B]"
-                        : "border-[#A1AEBE] text-[#242E39]"
+                      isCompleted
+                        ? " border-[#E4002B]  text-white bg-[#E4002B]"
+                        : isActive
+                          ? " border-[#E4002B]  text-[#E4002B]"
+                          : "border-[#A1AEBE] text-[#242E39]"
                     }`}
                   >
-                    {String(step.id).padStart(2, '0')}
+                    {isCompleted ? "✓" : String(step.id).padStart(2, "0")}
                   </div>
                   {index < steps.length - 1 && (
                     <div className="w-0.5 h-12 bg-[#A1AEBE] mt-2"></div>
                   )}
                 </div>
                 <div className="">
-                  <p className="font-medium text-sm text-[#ADADAD]">Step {String(step.id).padStart(2, '0')}</p>
+                  <p className="font-medium text-sm text-[#ADADAD]">
+                    Step {String(step.id).padStart(2, "0")}
+                  </p>
                   <p
                     className={`text-xl  ${
                       isCompleted || isActive

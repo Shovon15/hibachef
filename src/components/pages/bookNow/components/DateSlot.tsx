@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MainTitle from "./MainTitle";
 const timeSlots = [
   "1:00 PM",
   "2:00 PM",
@@ -63,12 +64,10 @@ const DateSlot = ({
       new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1),
     );
   };
-  console.log("object")
+  console.log("object");
   return (
     <div className="pl-20">
-      <h1 className="text-4xl font-bold mb-8 text-center">
-        Pick Your <span className="text-red-500">Date & Slot</span>
-      </h1>
+      <MainTitle text1="Pick Your" text2="Date & Slot" />
 
       <div className="flex  bg-[#F2F2F2] p-6 rounded-xl">
         {/* Calendar */}
@@ -79,7 +78,6 @@ const DateSlot = ({
                 onClick={handlePrevMonth}
                 className="py-2 px-2.5 bg-[#00000017] rounded-full group hover:bg-[#E4002B] transition-colors"
               >
-                
                 <ChevronIcon className="rotate-180 text-[#828282] group-hover:text-white transition-colors" />
               </button>
               <h2 className="text-sm font-semibold text-slate-900 uppercase">
@@ -89,7 +87,7 @@ const DateSlot = ({
                 onClick={handleNextMonth}
                 className="py-2 px-2.5 bg-[#00000017] rounded-full group hover:bg-[#E4002B] transition-colors"
               >
-               <ChevronIcon className=" text-[#828282] group-hover:text-white transition-colors" />
+                <ChevronIcon className=" text-[#828282] group-hover:text-white transition-colors" />
               </button>
             </div>
 

@@ -5,6 +5,8 @@ import { useState } from "react";
 import DateSlot from "./components/DateSlot";
 import PageBanner from "../../layout/container/PageBanner";
 import BookNowBg from "@/assets/images/book-banner.png";
+import YourInformation from "./components/YourInformation";
+import HibachiPackages from "./components/HibachiPackages";
 
 const steps = [
   { id: 1, label: "Date & Slot" },
@@ -18,7 +20,29 @@ const BookNowIndexComponent = () => {
   const [currentStep, setCurrentStep] = useState(steps[0].id);
   const [selectedDate, setSelectedDate] = useState(0);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
-
+  const renderStep = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <DateSlot
+            selectedDate={selectedDate}
+            setSelectedDate={setSelectedDate}
+            selectedTime={selectedTime}
+            setSelectedTime={setSelectedTime}
+          />
+        );
+      case 2:
+        return <YourInformation/>;
+      case 3:
+        return <HibachiPackages/>;
+      case 4:
+        return <div>Step 4</div>;
+      case 5:
+        return <div>Step 5</div>;
+      default:
+        return null;
+    }
+  };
   return (
     <div>
       <PageBanner
@@ -32,14 +56,7 @@ const BookNowIndexComponent = () => {
           currentStep={currentStep}
           setCurrentStep={setCurrentStep}
         />
-        <div className="flex-1 ">
-          <DateSlot
-            selectedDate={selectedDate}
-            setSelectedDate={setSelectedDate}
-            selectedTime={selectedTime}
-            setSelectedTime={setSelectedTime}
-          />
-        </div>
+        <div className="flex-1 ">{renderStep()}</div>
       </ContentContainer>
     </div>
   );
