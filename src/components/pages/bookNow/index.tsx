@@ -1,9 +1,9 @@
 "use client";
 import ContentContainer from "@/components/layout/container/contentContainer";
-import BookBanner from "./components/BookBanner";
 import Tabs from "./components/Tabs";
 import { useState } from "react";
 import DateSlot from "./components/DateSlot";
+import PageBanner from "./components/PageBanner";
 const steps = [
   { id: 1, label: "Date & Slot" },
   { id: 2, label: "Your Information" },
@@ -18,7 +18,7 @@ const BookNowIndexComponent = () => {
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   return (
     <div>
-      <BookBanner />
+      <PageBanner />
       <ContentContainer className="flex pt-[70px] pb-[120px]">
         <Tabs
           steps={steps}
