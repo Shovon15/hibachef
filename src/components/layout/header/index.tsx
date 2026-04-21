@@ -13,6 +13,8 @@ import PrimaryButton from "@/components/common/button/PrimaryButton";
 import PAGES from "@/dummyData";
 import IconButton from "@/components/common/button/IconButton";
 import { PhoneIcon } from "@/assets/icons";
+import NavLink from "@/components/common/link/NavLink";
+import routes from "@/config/routes";
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -47,8 +49,12 @@ const Header = () => {
         </div>
 
         <div className=" flex justify-center items-center gap-2 lg:gap-5">
-          <PrimaryButton>Book Now</PrimaryButton>
-          <IconButton icon={<PhoneIcon />} />
+          <NavLink href={routes.bookNow}>
+            <PrimaryButton>Book Now</PrimaryButton>
+          </NavLink>
+          <NavLink href={routes.contact}>
+            <IconButton icon={<PhoneIcon />} />
+          </NavLink>
         </div>
 
         {/* <MobileMenu
