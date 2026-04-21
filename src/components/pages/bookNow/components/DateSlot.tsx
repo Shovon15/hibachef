@@ -63,6 +63,7 @@ const DateSlot = ({
       new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1),
     );
   };
+  console.log("object")
   return (
     <div className="pl-20">
       <h1 className="text-4xl font-bold mb-8 text-center">
