@@ -1,14 +1,13 @@
-import collection from "@/components/pages/collection";
-
 const routes = {
   home: "/",
-  collection: "/collection",
-  collectionDetail: (slug?: number | string) =>
-    `/collection/details/${slug ?? ""}`,
-  search: "/search",
-  stories: "/stories",
-  warrantyPolicy: "/warranty-policy",
-  popItems: "/pop-items",
+  about: "/about",
+  menu: "/menu",
+  faq: "/faq",
+  locations: "/locations",
+  blog: "/blog",
+  gallery: "/gallery",
+  contact: "/contact",
+  bookNow: "/book-now",
 };
 
 export default routes;

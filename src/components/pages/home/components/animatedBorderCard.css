@@ -1,0 +1,77 @@
+.animLine {
+  background-size: cover;
+  float: left;
+  margin: 4px;
+  position: relative;
+  transform: scale(0.9);
+  transition: 0.1s;
+}
+
+.animLine:before,
+.animLine:after {
+  position: absolute;
+  content: "";
+  background: linear-gradient(90deg, #8b0404 40%, transparent 0%);
+  /* background: linear-gradient(90deg, #ff0030, #32000a, #ff0030, #32000a); */
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1;
+  border-radius: 20px;
+  background-size: 200% 4px;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 8px #2dca05);
+  background-position: 80% 0;
+  /* border-radius: 40px; */
+}
+
+.animLine:before {
+  animation: beforeLineAnim 4s linear infinite;
+}
+
+.animLine:after {
+  animation: afterLineAnim 4s linear infinite;
+  transform: rotate(-90deg);
+  background-position: -20% 0;
+}
+
+@keyframes beforeLineAnim {
+  45%,
+  50% {
+    background-position: -100% 0;
+  }
+  45% {
+    transform: scale(1);
+  }
+  50%,
+  95% {
+    transform: scale(1, -1);
+  }
+  95% {
+    background-position: 80% 0;
+  }
+}
+
+@keyframes afterLineAnim {
+  20%,
+  25% {
+    background-position: -100% 0;
+  }
+  20% {
+    transform: scale(1) rotate(-90deg);
+  }
+  25% {
+    transform: scale(-1, 1) rotate(-90deg);
+  }
+  70%,
+  75% {
+    background-position: 80% 0;
+  }
+  70% {
+    transform: scale(-1, 1) rotate(-90deg);
+  }
+  75% {
+    transform: scale(1, 1) rotate(-90deg);
+  }
+}
