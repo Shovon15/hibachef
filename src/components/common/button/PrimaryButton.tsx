@@ -16,7 +16,7 @@ const PrimaryButton = ({ className, ...props }: Props) => {
           "px-10",
           "py-[2vw] md:py-[1.2vw] lg:py-[8px] xl:py-[10px]",
           "text-[3.5vw] md:text-[1.5vw] lg:text-[0.99vw]",
-          "transition active:scale-[0.99] font-dmSans ",
+          "transition  font-dmSans ",
           className,
         )}
       />

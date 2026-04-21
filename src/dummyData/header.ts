@@ -4,31 +4,31 @@ export const headerData = {
   items: [
     {
       title: "About",
-      url: "about",
+      slug: "about",
     },
     {
       title: "Menu",
-      url: "menu",
+      slug: "menu",
     },
     {
       title: "FAQ",
-      url: "faq",
+      slug: "faq",
     },
     {
-      title: "Location",
-      url: "location",
+      title: "Locations",
+      slug: "locations",
     },
     {
       title: "Blog",
-      url: "blog",
+      slug: "blog",
     },
     {
       title: "Gallery",
-      url: "gallery",
+      slug: "gallery",
     },
     {
       title: "Contact",
-      url: "contact",
+      slug: "contact",
     },
   ],
 };

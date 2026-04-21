@@ -24,7 +24,7 @@ const IconButton = ({
           "bg-primary text-white capitalize rounded-full",
           "p-3.5",
           "text-[3.5vw] md:text-[1.5vw] lg:text-[0.99vw]",
-          "transition active:scale-[0.99] font-dmSans",
+          "transition  font-dmSans",
           className,
         )}
       >

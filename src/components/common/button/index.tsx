@@ -24,7 +24,7 @@ const ButtonComponent = ({
   return (
     <button
       className={cn(
-        "focus:outline-none focus:ring-0 inline-flex items-center justify-center gap-[calc(8/1920*100vw)] px-[calc(16/1920*100vw)] py-[calc(8/1440*100vw)] rounded font-medium  disabled:opacity-50 disabled:pointer-events-none cursor-pointer active:scale-95 duration-100 transition-all",
+        "focus:outline-none focus:ring-0 inline-flex items-center justify-center gap-[calc(8/1920*100vw)] px-[calc(16/1920*100vw)] py-[calc(8/1440*100vw)] rounded font-medium  disabled:opacity-50 disabled:pointer-events-none cursor-pointer active:scale-[0.97] duration-100 transition-all",
         className,
       )}
       disabled={isDisabled}
