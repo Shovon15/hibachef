@@ -25,7 +25,7 @@ const ContentContainer = ({
   return (
     <div
       className={cn(
-        "2xl:px-[16.67vw] lg:px-[16.67vw] px-4 h-full",
+        "2xl:px-[16.67vw] lg:px-[13.67vw] px-4 h-full",
         padding,
         className,
       )}
