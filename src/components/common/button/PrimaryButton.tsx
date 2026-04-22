@@ -14,7 +14,7 @@ const PrimaryButton = ({ className, ...props }: Props) => {
         className={cn(
           " bg-primary text-white capitalize rounded-full",
           "px-10",
-          "py-[2vw] md:py-[1.2vw] lg:py-[8px] xl:py-[10px]",
+          "py-[2.71vw] md:py-[1.2vw] lg:py-[8px] xl:py-[10px]",
           "text-[3.5vw] md:text-[1.5vw] lg:text-[0.99vw]",
           "transition  font-dmSans ",
           className,

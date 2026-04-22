@@ -1,11 +1,22 @@
-import React from 'react'
+import React from "react";
+import MenuListSection from "./components/MenuListSection";
+import PackageSection from "./components/PackageSection";
+import PageBanner from "@/components/layout/container/PageBanner";
 
-type Props = {data?: any}
+type Props = { data?: any };
 
 const MenuPage = (props: Props) => {
   return (
-    <div>MenuPage</div>
-  )
-}
+    <div>
+      <PageBanner
+        bgImage={""}
+        title="Menu & Pricing"
+        description="Hibachi Chef at Home brings the essence of Japanese cuisine right to your doorstep. Discover our menu, crafted with the finest ingredients to deliver authentic hibachi flavors and aromas. From sizzling meats and fresh seafood to vibrant hibachi vegetables and fried rice, our offerings are designed to impress. Explore our pricing options to find the perfect package for your next event."
+      />
+      <PackageSection />
+      <MenuListSection />
+    </div>
+  );
+};
 
-export default MenuPage
+export default MenuPage;

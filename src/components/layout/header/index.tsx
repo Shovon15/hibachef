@@ -26,9 +26,9 @@ const Header = () => {
 
   return (
     <ContentContainer
-      className={`fixed top-7.5 w-full z-[999] flex items-center transition-all duration-300 ease-in-out h-[100px]`}
+      className={`fixed top-7.5 w-full z-[999] flex items-center transition-all duration-300 ease-in-out h-[60px] lg:h-[100px]`}
     >
-      <header className="w-[92vw] mx-auto flex items-center justify-between h-full md:px-2 lg:bg-[#ffffff]  rounded-full">
+      <header className="w-[92vw] mx-auto flex items-center justify-between h-full px-2 bg-[#ffffff]  rounded-full">
         <div className="flex items-center gap-4 md:pl-5 lg:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -37,7 +37,7 @@ const Header = () => {
             <Hamburger isOpen={isMobileMenuOpen} />
           </button>
         </div>
-        <Logo className="size-[84px]" />
+        <Logo className="size-[50px] lg:size-[84px]" />
 
         <div className="h-full justify-center items-center hidden lg:flex">
           {/* {header && header?.items?.length > 0 && (

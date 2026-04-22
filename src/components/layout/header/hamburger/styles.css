@@ -15,8 +15,10 @@
 
 .menuIcon__line {
   fill: none;
-  transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
-  stroke: #ffffff;
+  transition:
+    stroke-dasharray 400ms,
+    stroke-dashoffset 400ms;
+  stroke: #000000;
   stroke-width: 3.5;
   stroke-linecap: round;
 }
@@ -35,7 +37,9 @@
 .menuIcon--v8 .menuIcon__line--bottom {
   stroke-dasharray: 40 85;
   transform-origin: 50%;
-  transition: transform 400ms, stroke-dashoffset 400ms;
+  transition:
+    transform 400ms,
+    stroke-dashoffset 400ms;
 }
 
 /* Open state animations */
