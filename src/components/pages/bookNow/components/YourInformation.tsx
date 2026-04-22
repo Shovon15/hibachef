@@ -14,7 +14,11 @@ const YourInformation = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleProceed = () => {
@@ -24,6 +28,7 @@ const YourInformation = () => {
   const handlePrevious = () => {
     console.log("Going to previous step");
   };
+ 
 
   return (
     <div className="pl-20">

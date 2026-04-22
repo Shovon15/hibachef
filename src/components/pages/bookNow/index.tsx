@@ -7,6 +7,8 @@ import PageBanner from "../../layout/container/PageBanner";
 import BookNowBg from "@/assets/images/book-banner.png";
 import YourInformation from "./components/YourInformation";
 import HibachiPackages from "./components/HibachiPackages";
+import SideOrders from "./components/SideOrders";
+import TableChairRental from "./components/TableChairRental";
 
 const steps = [
   { id: 1, label: "Date & Slot" },
@@ -36,9 +38,9 @@ const BookNowIndexComponent = () => {
       case 3:
         return <HibachiPackages/>;
       case 4:
-        return <div>Step 4</div>;
+        return <SideOrders/>;
       case 5:
-        return <div>Step 5</div>;
+        return <TableChairRental/>;
       default:
         return null;
     }
