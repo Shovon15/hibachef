@@ -5,8 +5,8 @@ type Props = {
 };
 const Tabs = ({ steps, currentStep, setCurrentStep }: Props) => {
   return (
-    <div className="w-[28%] ">
-      <div className="space-y-6 border-r border-[#DCDCDC] pb-16 pt-2">
+    <div className="w-[28%] h-fit border-r border-[#DCDCDC] pb-10 pt-2 ">
+      <div className="space-y-6 ">
         {steps.map((step, index) => {
           const isCompleted = step.id < currentStep;
           const isActive = step.id === currentStep;
@@ -53,6 +53,26 @@ const Tabs = ({ steps, currentStep, setCurrentStep }: Props) => {
           );
         })}
       </div>
+      {currentStep >= 3 && currentStep <= 5 && (
+        <div className="bg-[#F2F2F2] px-5 py-5.5 rounded-2xl max-w-[265px] mt-10.5 space-y-5">
+          <p className=" font-graphikTrial font-semibold text-[#000000] text-xl">
+            Total Billing
+          </p>
+          <p className=" font-graphikTrial font-normal text-base text-[#000000] flex justify-between items-center">
+            <span>Sub Total</span>
+            <span>$803.00</span>
+          </p>
+          <p className=" font-graphikTrial font-normal text-base text-[#000000] flex justify-between items-center">
+            <span>Tax</span>
+            <span>$72.27</span>
+          </p>
+          <hr className="border-t border-[#DCDCDC] border-dashed" />
+          <p className=" font-graphikTrial font-medium text-base text-[#000000] flex justify-between items-center">
+            <span>Total</span>
+            <span className="text-[#E4002B]">$875.27</span>
+          </p>
+        </div>
+      )}
     </div>
   );
 };

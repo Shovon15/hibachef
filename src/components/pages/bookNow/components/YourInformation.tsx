@@ -2,8 +2,10 @@ import { useState } from "react";
 import InputComponent from "./InputComponent";
 import ButtonComponent from "./ButtonComponent";
 import MainTitle from "./MainTitle";
-
-const YourInformation = () => {
+type Props = {
+  setCurrentStep: (step: number) => void;
+};
+const YourInformation = ({ setCurrentStep }: Props) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,12 +25,13 @@ const YourInformation = () => {
 
   const handleProceed = () => {
     console.log("Proceeding with:", formData);
+    setCurrentStep(3);
   };
 
   const handlePrevious = () => {
     console.log("Going to previous step");
+    setCurrentStep(1);
   };
- 
 
   return (
     <div className="pl-20">

@@ -9,6 +9,7 @@ import YourInformation from "./components/YourInformation";
 import HibachiPackages from "./components/HibachiPackages";
 import SideOrders from "./components/SideOrders";
 import TableChairRental from "./components/TableChairRental";
+import ThankYouSection from "./components/ThankYouSection";
 
 const steps = [
   { id: 1, label: "Date & Slot" },
@@ -34,13 +35,15 @@ const BookNowIndexComponent = () => {
           />
         );
       case 2:
-        return <YourInformation/>;
+        return <YourInformation setCurrentStep={setCurrentStep} />;
       case 3:
-        return <HibachiPackages/>;
+        return <HibachiPackages setCurrentStep={setCurrentStep} />;
       case 4:
-        return <SideOrders/>;
+        return <SideOrders setCurrentStep={setCurrentStep} />;
       case 5:
-        return <TableChairRental/>;
+        return <TableChairRental setCurrentStep={setCurrentStep} />;
+      case 6:
+        return <ThankYouSection />;
       default:
         return null;
     }

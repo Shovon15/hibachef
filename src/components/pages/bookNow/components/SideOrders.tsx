@@ -3,16 +3,26 @@ import InputBottomText from "./InputBottomText";
 import InputComponent from "./InputComponent";
 import MainTitle from "./MainTitle";
 import ButtonComponent from "./ButtonComponent";
-interface FormDataType {
+type FormDataType = {
   noodlesQty: number;
   mixedVeggiesQty: number;
   eggFriedRiceQty: number;
   additionalChicken: number;
   additionalShrimps: number;
   additionalPrimeNYStrip: number;
-}
+  additionalSalmon: number;
+  additionalScallops: number;
+  additionalFiletMignon: number;
+  additionalLobsterTail: number;
+  gyoza: number;
+  edamame: number;
+};
 
-const SideOrders = () => {
+type Props = {
+  setCurrentStep: (step: number) => void;
+};
+
+const SideOrders = ({ setCurrentStep }: Props) => {
   const [formData, setFormData] = useState<FormDataType>({
     noodlesQty: 0,
     mixedVeggiesQty: 0,
@@ -20,6 +30,12 @@ const SideOrders = () => {
     additionalChicken: 0,
     additionalShrimps: 0,
     additionalPrimeNYStrip: 0,
+    additionalSalmon: 0,
+    additionalScallops: 0,
+    additionalFiletMignon: 0,
+    additionalLobsterTail: 0,
+    gyoza: 0,
+    edamame: 0,
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -27,11 +43,13 @@ const SideOrders = () => {
   };
 
   const handleProceed = () => {
-    console.log("Proceeding with:", formData);
+    // console.log("Proceeding with:", formData);
+    setCurrentStep(5);
   };
 
   const handlePrevious = () => {
     console.log("Going to previous step");
+    setCurrentStep(3);
   };
   return (
     <div className="pl-20">
@@ -132,6 +150,105 @@ const SideOrders = () => {
             <InputBottomText>
               <span className="text-[#E4002B]">$15</span>
               /Additional Prime NY Strip
+            </InputBottomText>
+          </div>
+          <div>
+            <InputComponent
+              label="Additional Salmon"
+              name="additionalSalmon"
+              type="number"
+              value={
+                formData.additionalSalmon > 0 ? formData.additionalSalmon : ""
+              }
+              onChange={handleChange}
+              className=" "
+            />
+            <InputBottomText>
+              <span className="text-[#E4002B]">$15</span>
+              /Additional Salmon
+            </InputBottomText>
+          </div>
+          <div>
+            <InputComponent
+              label="Additional Scallops"
+              name="additionalScallops"
+              type="number"
+              value={
+                formData.additionalScallops > 0
+                  ? formData.additionalScallops
+                  : ""
+              }
+              onChange={handleChange}
+              className=" "
+            />
+            <InputBottomText>
+              <span className="text-[#E4002B]">$15</span>
+              /Additional Scallops
+            </InputBottomText>
+          </div>
+          <div>
+            <InputComponent
+              label="Additional Filet Mignon"
+              name="additionalFiletMignon"
+              type="number"
+              value={
+                formData.additionalFiletMignon > 0
+                  ? formData.additionalFiletMignon
+                  : ""
+              }
+              onChange={handleChange}
+              className=" "
+            />
+            <InputBottomText>
+              <span className="text-[#E4002B]">$15</span>
+              /Additional Filet Mignon
+            </InputBottomText>
+          </div>
+          <div>
+            <InputComponent
+              label="Additional Lobster Tail"
+              name="additionalLobsterTail"
+              type="number"
+              value={
+                formData.additionalLobsterTail > 0
+                  ? formData.additionalLobsterTail
+                  : ""
+              }
+              onChange={handleChange}
+              className=" "
+            />
+            <InputBottomText>
+              <span className="text-[#E4002B]">$15</span>
+              /Additional Lobster Tail
+            </InputBottomText>
+          </div>
+
+          <div>
+            <InputComponent
+              label="Gyoza(pork)(6pc)"
+              name="gyoza"
+              type="number"
+              value={formData.gyoza > 0 ? formData.gyoza : ""}
+              onChange={handleChange}
+              className=" "
+            />
+            <InputBottomText>
+              <span className="text-[#E4002B]">$15</span>
+              /Gyoza(pork)(6pc)
+            </InputBottomText>
+          </div>
+          <div>
+            <InputComponent
+              label="Edamame"
+              name="edamame"
+              type="number"
+              value={formData.edamame > 0 ? formData.edamame : ""}
+              onChange={handleChange}
+              className=" "
+            />
+            <InputBottomText>
+              <span className="text-[#E4002B]">$15</span>
+              /Edamame
             </InputBottomText>
           </div>
         </div>

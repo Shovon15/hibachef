@@ -5,21 +5,23 @@ import ButtonComponent from "./ButtonComponent";
 import { EntreeChoices } from "./EntreeChoices";
 import InputBottomText from "./InputBottomText";
 
-interface EntreeItem {
+type EntreeItem = {
   id: string;
   entree: string;
   quantity: string;
-}
-interface FormDataType {
+};
+type FormDataType = {
   regularGuest: string;
   specialGuest: string;
   kids: string;
   entreeChoices: EntreeItem[];
   filetQty: string;
   lobsterQty: string;
-}
-
-const HibachiPackages = () => {
+};
+type Props = {
+  setCurrentStep: (step: number) => void;
+};
+const HibachiPackages = ({ setCurrentStep }: Props) => {
   const [formData, setFormData] = useState<FormDataType>({
     regularGuest: "",
     specialGuest: "",
@@ -35,10 +37,12 @@ const HibachiPackages = () => {
 
   const handleProceed = () => {
     console.log("Proceeding with:", formData);
+    setCurrentStep(4);
   };
 
   const handlePrevious = () => {
     console.log("Going to previous step");
+    setCurrentStep(2);
   };
 
   return (
