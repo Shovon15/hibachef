@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputComponent from "./InputComponent";
 import ButtonComponent from "./ButtonComponent";
-import MainTitle from "./MainTitle";
+import MainTitle from "../../../common/Titles/MainTitle";
 type Props = {
   setCurrentStep: (step: number) => void;
 };

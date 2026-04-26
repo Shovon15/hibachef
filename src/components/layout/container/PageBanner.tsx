@@ -26,7 +26,7 @@ const PageBanner = ({ bgImage, title = "", description = "" }: Props) => {
           {title} <span className="text-[#EE2026]">Hibachef</span>
         </h1>
 
-        <p className="max-w-[75%] font-normal text-white text-base leading-relaxed mt-4">
+        <p className="lg:max-w-[75%] font-normal text-white text-sm lg:text-base leading-relaxed mt-4">
           {description}
         </p>
       </ContentContainer>

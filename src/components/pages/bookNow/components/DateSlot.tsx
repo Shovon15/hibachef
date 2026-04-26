@@ -1,5 +1,5 @@
 import { useState } from "react";
-import MainTitle from "./MainTitle";
+import MainTitle from "../../../common/Titles/MainTitle";
 const timeSlots = [
   "1:00 PM",
   "2:00 PM",

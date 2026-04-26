@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputBottomText from "./InputBottomText";
 import InputComponent from "./InputComponent";
-import MainTitle from "./MainTitle";
+import MainTitle from "../../../common/Titles/MainTitle";
 import ButtonComponent from "./ButtonComponent";
 type FormDataType = {
   noodlesQty: number;

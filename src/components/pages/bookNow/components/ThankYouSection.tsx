@@ -1,5 +1,5 @@
 import Link from "next/link";
-import MainTitle from "./MainTitle";
+import MainTitle from "../../../common/Titles/MainTitle";
 
 const ThankYouSection = () => {
   return (
