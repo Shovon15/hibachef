@@ -1,43 +1,41 @@
 import ImageComponent from "@/components/common/image";
-
 import ContentContainer from "@/components/layout/container/contentContainer";
 import { cn } from "@/utils/helpers/cn";
-import { StaticImageData } from "next/image";
-type Props = {
-  bgImage: string | StaticImageData;
-  title?: string;
-  title2?: string;
-  description: string;
-};
+import BlogBannerBg from "@/assets/images/blog-bg.png";
 
-const PageBanner = ({ bgImage, title = "",title2 = "", description = "" }: Props) => {
+const BlogDetailBanner = () => {
   return (
-    <div className="relative w-full h-[476px] max-h-[476px] pt-[170px] overflow-hidden">
-      <ImageComponent
-        src={bgImage}
-        alt="Banner image"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+    <div>
+      <div className="relative w-full h-auto pt-[170px] overflow-hidden">
+        <ImageComponent
+          src={BlogBannerBg}
+          alt="Banner image"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
-      <div className="absolute inset-0 bg-[linear-gradient(270deg,rgba(30,30,30,0)_0%,#000000_70.82%)] z-10" />
+        <div className="absolute inset-0 bg-[linear-gradient(270deg,rgba(30,30,30,0)_0%,#000000_70.82%)] z-10" />
 
-      {/* 🧊 Content on top */}
-      <ContentContainer className="relative z-20 h-full flex flex-col justify-start">
-        <h1 className="text-white text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4.375rem)] font-normal font-cooperBlack">
-          {title} <span className="text-[#EE2026]">{title2}</span>
-        </h1>
+        {/* 🧊 Content on top */}
+        <ContentContainer className="relative z-20 h-full flex flex-col justify-start pb-20 ">
+          <div className="w-full lg:w-[82%]">
+            <h1 className="text-white text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4rem)] font-normal font-cooperBlack">
+              The Epic Adventures of{" "}
+              <span className="text-[#EE2026]">Hibachef</span>
+            </h1>
+            <p className=" font-normal text-white text-sm lg:text-2xl leading-relaxed mt-4 uppercase">
+              Hibachi Chef at Home brings the essence of Japanese cuisine right
+              to your doorstep.
+            </p>
+          </div>
+        </ContentContainer>
 
-        <p className="lg:max-w-[75%] font-normal text-white text-sm lg:text-base leading-relaxed mt-4">
-          {description}
-        </p>
-      </ContentContainer>
-
-      <Shape className="absolute bottom-0 left-0 z-20" />
+        <Shape className="absolute bottom-0 left-0 z-20" />
+      </div>
     </div>
   );
 };
 
-export default PageBanner;
+export default BlogDetailBanner;
 
 const Shape = ({ className }: { className?: string }) => {
   return (

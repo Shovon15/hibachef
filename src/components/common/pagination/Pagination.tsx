@@ -113,7 +113,7 @@ export function Pagination({ totalPages, onPageChange }: PaginationProps) {
       <button
         key={pageNum}
         onClick={() => handlePageChange(pageNum)}
-        className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded font-graphikTrial  font-medium text-xs sm:text-base transition-all duration-200 ${
+        className={`w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded font-graphikTrial  font-medium text-xs lg:text-base transition-all duration-200 ${
           isActive
             ? "bg-[#FDEDF0] text-[#E4002B]  "
             : " text-[#667085]  hover:bg-[#FDEDF0] active:scale-95"
@@ -130,15 +130,13 @@ export function Pagination({ totalPages, onPageChange }: PaginationProps) {
       {/* Desktop view */}
       <div className="hidden sm:flex items-center justify-between gap-3">
         {/* Previous Button */}
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
+        <NavigationButton
+          handlePageFuntion={() => handlePageChange(currentPage - 1)}
+          text="Previous"
+          ariaLabel="Previous page"
+          direction="left"
           disabled={currentPage === 1}
-          className="flex items-center font-graphikTrial font-medium text-xs lg:text-base gap-2 justify-center  disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 active:scale-95 text-[#667085] hover:text-[#E4002B]"
-          aria-label="Previous page"
-        >
-          <ArrowIcon className="w-3 h-3" />
-          Previous
-        </button>
+        />
 
         {/* Page Numbers */}
         <div className="flex items-center gap-2">
@@ -148,46 +146,67 @@ export function Pagination({ totalPages, onPageChange }: PaginationProps) {
         </div>
 
         {/* Next Button */}
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
+        <NavigationButton
+          handlePageFuntion={() => handlePageChange(currentPage + 1)}
+          text="Next"
+          ariaLabel="Next Page"
+          direction="right"
           disabled={currentPage === totalPages}
-          className="flex items-center font-graphikTrial font-medium text-xs lg:text-base gap-2 justify-center  disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 active:scale-95 text-[#667085] hover:text-[#E4002B]"
-          aria-label="Next page"
-        >
-          Next
-          <ArrowIcon className="w-3 h-3" direction="right"  />
-        </button>
+        />
       </div>
 
       {/* Mobile view */}
-      <div className="sm:hidden flex items-center justify-center gap-1.5">
-        {/* Previous Button */}
-        <button
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="flex items-center justify-center w-8 h-8 border border-[#2D3135] rounded hover:bg-neutral-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 active:scale-95"
-          aria-label="Previous page"
-        >
-          {/* <ChevronLeft className="w-4 h-4 text-[#2D3135]" /> */}
-        </button>
-
+      <div className="sm:hidden flex flex-col items-center justify-center gap-1.5">
         {/* Page Numbers */}
-        <div className="flex items-center gap-1">
-          {compactPageNumbers.map((page, index) =>
-            renderPageButton(page, index, true),
+        <div className="flex items-center gap-2">
+          {pageNumbers.map((page, index) =>
+            renderPageButton(page, index, false),
           )}
         </div>
-
-        {/* Next Button */}
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="flex items-center justify-center w-8 h-8 border border-[#2D3135] rounded hover:bg-neutral-50 disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 active:scale-95"
-          aria-label="Next page"
-        >
-          {/* <ChevronRight className="w-4 h-4 text-[#2D3135]" /> */}
-        </button>
+        <div className=" flex justify-between items-center w-full mt-5">
+          {/* Previous Button */}
+          <NavigationButton
+            handlePageFuntion={() => handlePageChange(currentPage - 1)}
+            text="Previous"
+            ariaLabel="Previous page"
+            direction="left"
+            disabled={currentPage === 1}
+          />
+          {/* Next Button */}
+          <NavigationButton
+            handlePageFuntion={() => handlePageChange(currentPage + 1)}
+            text="Next"
+            ariaLabel="Next Page"
+            direction="right"
+            disabled={currentPage === totalPages}
+          />
+        </div>
       </div>
     </div>
   );
 }
+
+const NavigationButton = ({
+  handlePageFuntion,
+  disabled,
+  ariaLabel,
+  text,
+  direction,
+}: any) => {
+  return (
+    <button
+      onClick={handlePageFuntion}
+      disabled={disabled}
+      className="flex items-center font-graphikTrial font-medium text-xs lg:text-base gap-2 justify-center  disabled:opacity-40 disabled:cursor-not-allowed transition-all duration-200 active:scale-95 text-[#667085] hover:text-[#E4002B]"
+      aria-label={ariaLabel}
+    >
+      {direction === "left" && (
+        <ArrowIcon className="w-3 h-3" direction={direction} />
+      )}
+      {text}
+      {direction === "right" && (
+        <ArrowIcon className="w-3 h-3" direction={direction} />
+      )}
+    </button>
+  );
+};
