@@ -19,6 +19,10 @@ const slides = [
   "/blog-img-2.png",
   "/blog-img-2.png",
   "/blog-img-2.png",
+  "/blog-img-2.png",
+  "/blog-img-2.png",
+  "/blog-img-2.png",
+  "/blog-img-2.png",
 ];
 
 export default function FeaturedVideos() {
@@ -27,7 +31,7 @@ export default function FeaturedVideos() {
       <h2
         className={`text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4rem)] font-normal text-center font-cooperBlack `}
       >
-     <span className="text-[#E4002B]">Featured</span> Videos
+        <span className="text-[#E4002B]">Featured</span> Videos
       </h2>
       <div className="w-full  relative mt-14">
         <Swiper
@@ -35,8 +39,16 @@ export default function FeaturedVideos() {
           effect="coverflow"
           centeredSlides
           loop
+          loopPreventsSliding={false}
           slidesPerView="auto"
           spaceBetween={0}
+          speed={1200}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          touchRatio={1}
+          resistanceRatio={0.85}
           navigation={{
             nextEl: ".custom-next",
             prevEl: ".custom-prev",
@@ -48,6 +60,13 @@ export default function FeaturedVideos() {
             modifier: 4,
             slideShadows: false,
           }}
+          // coverflowEffect={{
+          //   rotate: 0,
+          //   stretch: 175,
+          //   depth: 31,
+          //   modifier: 4,
+          //   slideShadows: false,
+          // }}
           //   breakpoints={{
           //     768: {
           //       slidesPerView: 2.2,
