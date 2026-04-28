@@ -2,11 +2,12 @@ import ImageComponent from "@/components/common/image";
 import ContentContainer from "@/components/layout/container/contentContainer";
 import { cn } from "@/utils/helpers/cn";
 import BlogBannerBg from "@/assets/images/blog-bg.png";
+import ShareIcon from "@/assets/icons/ShareIcon";
 
 const BlogDetailBanner = () => {
   return (
     <div>
-      <div className="relative w-full h-auto pt-[170px] overflow-hidden">
+      <div className="relative w-full h-auto  overflow-hidden">
         <ImageComponent
           src={BlogBannerBg}
           alt="Banner image"
@@ -16,9 +17,17 @@ const BlogDetailBanner = () => {
         <div className="absolute inset-0 bg-[linear-gradient(270deg,rgba(30,30,30,0)_0%,#000000_70.82%)] z-10" />
 
         {/* 🧊 Content on top */}
-        <ContentContainer className="relative z-20 h-full flex flex-col justify-start pb-20 ">
+        <ContentContainer className="relative z-20 h-full flex flex-col justify-start pb-20 pt-[200px]">
           <div className="w-full lg:w-[82%]">
-            <h1 className="text-white text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4rem)] font-normal font-cooperBlack">
+            <div className="  flex flex-wrap gap-1">
+              <p className="font-normal font-graphikTrial text-[clamp(0.875rem,1.042vw,1.25rem)] text-white px-3 pb-1 rounded-full bg-[#00000080] backdrop-blur-[1px] w-fit">
+                Aenean Eleifend
+              </p>
+              <p className="font-normal font-graphikTrial text-[clamp(0.875rem,1.042vw,1.25rem)] text-white px-3 pb-1 rounded-full bg-[#00000080] backdrop-blur-[1px] w-fit">
+                Aliquam
+              </p>
+            </div>
+            <h1 className="text-white text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4rem)] font-normal font-cooperBlack mt-5">
               The Epic Adventures of{" "}
               <span className="text-[#EE2026]">Hibachef</span>
             </h1>
@@ -26,6 +35,18 @@ const BlogDetailBanner = () => {
               Hibachi Chef at Home brings the essence of Japanese cuisine right
               to your doorstep.
             </p>
+            <div
+              className={`flex justify-start items-center gap-3 font-graphikTrial text-lg mt-5 font-normal  text-[#FFFFFF]`}
+            >
+              <p>June 28, 2018</p>{" "}
+              <span
+                className={`w-1.5 h-1.5  rounded-full  bg-[#EE1F26]`}
+              ></span>{" "}
+              <p className="flex justify-start items-center gap-1">
+                <ShareIcon />
+                1K shares
+              </p>{" "}
+            </div>
           </div>
         </ContentContainer>
 
