@@ -10,6 +10,7 @@ import HibachiPackages from "./components/HibachiPackages";
 import SideOrders from "./components/SideOrders";
 import TableChairRental from "./components/TableChairRental";
 import ThankYouSection from "./components/ThankYouSection";
+import BillSummary from "./components/BillSummary";
 
 const steps = [
   { id: 1, label: "Date & Slot" },
@@ -55,13 +56,22 @@ const BookNowIndexComponent = () => {
         title="Book Your Hibachef"
         description="Hibachi Chef at Home brings the essence of Japanese cuisine right to your doorstep. Discover our menu, crafted with the finest ingredients to deliver authentic hibachi flavors and aromas. From sizzling meats and fresh seafood to vibrant hibachi vegetables and fried rice, our offerings are designed to impress. Explore our pricing options to find the perfect package for your next event."
       />
-      <ContentContainer className="flex pt-[70px] pb-[120px]">
-        <Tabs
-          steps={steps}
-          currentStep={currentStep}
-          setCurrentStep={setCurrentStep}
-        />
-        <div className="flex-1 ">{renderStep()}</div>
+      <ContentContainer className="flex flex-col lg:flex-row pt-5 lg:pt-[70px] pb-16 lg:pb-[120px]">
+        <div className="w-full lg:w-[28%] h-fit lg:border-r border-[#DCDCDC] pb-10 pt-2 ">
+          <Tabs
+            steps={steps}
+            currentStep={currentStep}
+            setCurrentStep={setCurrentStep}
+          />
+          <div className="hidden lg:block">
+            <BillSummary currentStep={currentStep} />
+          </div>
+        </div>
+
+        <div className="flex-1 mt-8">{renderStep()}</div>
+        <div className="blog lg:hidden ">
+          <BillSummary currentStep={currentStep} />
+        </div>
       </ContentContainer>
     </div>
   );

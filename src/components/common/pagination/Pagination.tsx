@@ -1,7 +1,7 @@
 "use client";
 
 import ArrowIcon from "@/assets/icons/ArrowIcon";
-import LeftArrow from "@/assets/icons/LeftArrow";
+import LeftArrow from "@/assets/icons/SliderArrowIcon";
 // import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState, useMemo } from "react";
 

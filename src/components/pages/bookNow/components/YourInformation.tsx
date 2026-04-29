@@ -34,9 +34,9 @@ const YourInformation = ({ setCurrentStep }: Props) => {
   };
 
   return (
-    <div className="pl-20">
+    <div className="lg:pl-20">
       <MainTitle text1="Give Your" text2="Information" />
-      <div className="w-full rounded-4xl bg-[#F2F2F2] p-6.5  mt-12">
+      <div className="w-full rounded-4xl bg-[#F2F2F2] p-6.5 mt-9 lg:mt-12">
         <div className="grid gap-x-14 gap-y-6 grid-cols-1 md:grid-cols-2">
           <InputComponent
             label="Your Name *"
@@ -44,7 +44,7 @@ const YourInformation = ({ setCurrentStep }: Props) => {
             type="text"
             value={formData.name}
             onChange={handleChange}
-            className="col-span-2 "
+            className="md:col-span-2 "
           />
 
           <InputComponent

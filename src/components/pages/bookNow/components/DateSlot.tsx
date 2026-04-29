@@ -66,12 +66,12 @@ const DateSlot = ({
   };
   console.log("object");
   return (
-    <div className="pl-20">
+    <div className="lg:pl-20">
       <MainTitle text1="Pick Your" text2="Date & Slot" />
 
-      <div className="flex  bg-[#F2F2F2] p-6 rounded-xl">
+      <div className="flex flex-col lg:flex-row bg-[#F2F2F2] p-6 mt-4 lg:mt-0 rounded-xl gap-4 lg:gap-0">
         {/* Calendar */}
-        <div className="flex-1 pr-6 border-r border-dashed border-[#DCDCDC]">
+        <div className="flex-1 pb-2 lg:pr-6 border-b lg:border-r border-dashed border-[#DCDCDC]">
           <div className="">
             <div className="flex items-center justify-between mb-4">
               <button
@@ -96,7 +96,7 @@ const DateSlot = ({
               {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
                 <div
                   key={day}
-                  className="text-center text-xs font-semibold text-slate-600 py-2"
+                  className="text-center text-sm lg:text-xs font-semibold text-slate-600 py-2"
                 >
                   {day}
                 </div>
@@ -119,7 +119,7 @@ const DateSlot = ({
                       day === null
                         ? "text-slate-300"
                         : isSelected
-                          ? "bg-red-500 text-white font-semibold "
+                          ? "bg-[#E4002B] text-white font-semibold "
                           : isToday
                             ? "bg-[#DCDCDC] text-[#000000] font-normal"
                             : "text-[#000000] hover:bg-[#DCDCDC] font-normal"
@@ -134,22 +134,22 @@ const DateSlot = ({
         </div>
 
         {/* Time Slots */}
-        <div className="flex-1 pl-6">
-          <div className="mb-6">
-            <p className="text-sm text-slate-600 font-medium">
+        <div className="flex-1 lg:pl-6">
+          <div className="pb-4 border-b border-dashed border-[#DCDCDC]">
+            <p className="text-sm text-[#192020] font-medium font-graphikTrial text-center">
               {selectedDateFormatted}
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 mt-4">
             {timeSlots.map((time) => (
               <button
                 key={time}
                 onClick={() => setSelectedTime(time)}
-                className={`py-4 px-6 rounded-full font-semibold text-sm transition-all ${
+                className={`py-4 px-6 rounded-full font-normal font-graphikTrial text-sm transition-all ${
                   selectedTime === time
-                    ? "bg-red-500 text-white shadow-lg"
-                    : "bg-slate-200 text-slate-700 hover:bg-slate-300"
+                    ? "bg-[#E4002B] text-white shadow-lg"
+                    : "bg-[#FFFFFF] text-[#000000] hover:bg-slate-300"
                 }`}
               >
                 {time}

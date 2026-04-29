@@ -8,6 +8,7 @@ import MenuSection from "./components/MenuSection";
 import DiningSection from "./components/DiningSection";
 import LocationSection from "./components/LocationSection";
 import ImageComponent from "@/components/common/image";
+import Review from "@/components/common/review/Review";
 
 type Props = {
   data?: any;
@@ -23,6 +24,7 @@ const HomeComponent = ({ data }: Props) => {
       <LocationSection />
 
       <GallerySection />
+      <Review/>
     </ContentContainer>
   );
 };

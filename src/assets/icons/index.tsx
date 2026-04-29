@@ -5,6 +5,6 @@ export { default as YoutubeIcon } from "./Youtube";
 export { default as LinkedinIcon } from "./Linkedin";
 export { default as WhatsAppIcon } from "./WhatsApp";
 export { default as PinterestIcon } from "./Pinterest";
-export { default as LeftArrowIcon } from "./LeftArrow";
+export { default as LeftArrowIcon } from "./SliderArrowIcon";
 export { default as RightArrowIcon } from "./RightArrow";
 export { default as PhoneIcon } from "./PhoneIcon";

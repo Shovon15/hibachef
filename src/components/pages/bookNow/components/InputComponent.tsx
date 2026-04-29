@@ -47,7 +47,7 @@ const InputComponent = ({
         value={value}
         name={name}
         placeholder=" "
-        className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#E4002B] peer transition-colors duration-200 font-graphikTrial font-medium text-base text-[#000000]"
+        className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#E4002B] peer transition-colors duration-200 font-graphikTrial font-medium text-sm lg:text-base text-[#000000]"
       />
       <label
         htmlFor={name}

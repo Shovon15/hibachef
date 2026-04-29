@@ -8,6 +8,7 @@ import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 import ImageComponent from "@/components/common/image";
 import MainTitle from "@/components/common/Titles/MainTitle";
+import SliderArrowIcon from "@/assets/icons/SliderArrowIcon";
 
 const slides = [
   "/blog-img-2.png",
@@ -110,12 +111,12 @@ export default function FeaturedVideos() {
         </Swiper>
 
         {/* Navigation Buttons */}
-        <button className="custom-prev absolute left-[14%] top-1/2 -translate-y-1/2 z-10 bg-white text-red-500 hover:text-white  hover:bg-[#E4002B] border border-[#E4002B] w-10 h-10 rounded-full shadow flex items-center justify-center">
-          ‹
+        <button className="custom-prev absolute left-[14%] top-1/2 -translate-y-1/2 z-10 bg-white text-red-500 hover:text-white  hover:bg-[#E4002B] border border-[#E4002B] w-10 h-10 rounded-full shadow flex items-center justify-center p-2.5">
+          <SliderArrowIcon/>
         </button>
 
-        <button className="custom-next absolute right-[14%] top-1/2 -translate-y-1/2 z-10 bg-white text-red-500 hover:text-white  hover:bg-[#E4002B] border border-[#E4002B] w-10 h-10 rounded-full shadow flex items-center justify-center">
-          ›
+        <button className="custom-next absolute right-[14%] top-1/2 -translate-y-1/2 z-10 bg-white text-red-500 hover:text-white  hover:bg-[#E4002B] border border-[#E4002B] w-10 h-10 rounded-full shadow flex items-center justify-center p-2.5">
+         <SliderArrowIcon className="rotate-180"/>
         </button>
       </div>
     </div>

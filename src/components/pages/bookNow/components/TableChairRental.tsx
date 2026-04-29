@@ -35,9 +35,9 @@ const TableChairRental = ({ setCurrentStep }: Props) => {
     setCurrentStep(4);
   };
   return (
-    <div className="pl-20">
+    <div className="lg:pl-20">
       <MainTitle text1="Table/Chair" text2="Rental" />
-      <div className="w-full rounded-4xl bg-[#F2F2F2] p-6.5  mt-12">
+      <div className="w-full rounded-4xl bg-[#F2F2F2] p-6.5 mt-9 lg:mt-12">
         <div>
           <InputComponent
             label="Person QTY *"

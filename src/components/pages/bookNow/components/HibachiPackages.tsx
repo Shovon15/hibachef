@@ -46,9 +46,9 @@ const HibachiPackages = ({ setCurrentStep }: Props) => {
   };
 
   return (
-    <div className="pl-20">
+    <div className="lg:pl-20">
       <MainTitle text1="Hibachi" text2="Packages" />
-      <div className="w-full rounded-4xl bg-[#F2F2F2] p-6.5  mt-12">
+      <div className="w-full rounded-4xl bg-[#F2F2F2] p-6.5 mt-9 lg:mt-12">
         <div className="grid gap-x-7 gap-y-6 grid-cols-1 md:grid-cols-3">
           <div>
             <InputComponent
