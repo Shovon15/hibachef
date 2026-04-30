@@ -5,11 +5,11 @@ import GoogleLogo from "@/assets/icons/GoogleLogo";
 import NavLink from "../link/NavLink";
 import TestimonialSlider from "./TestimonialSlider";
 
-const Review = () => {
+const Review = ({mainTitle,spanTitle, className=""}:any) => {
   return (
-    <ContentContainer>
-      <MainTitle text1="Customer " text2="Review" />
-      <div className="bg-[#F2F2F2] rounded-3xl p-6 flex justify-between items-center mt-16">
+    <ContentContainer className={className}>
+      <MainTitle text1={mainTitle} text2={spanTitle} />
+      <div className="bg-[#F2F2F2] rounded-3xl p-6 flex flex-col lg:flex-row justify-between items-center mt-16">
         <div>
           <h3 className="font-graphikTrial font-medium text-2xl text-[#1A1A1A] flex justify-start items-center gap-2">
             <GoogleLogo />
@@ -25,8 +25,8 @@ const Review = () => {
             </p>
           </div>
         </div>
-        <div>
-          <NavLink href={"#"} className="px-7 py-4 bg-[#EE1F26] rounded-full font-graphikTrial font-medium text-base text-white uppercase border border-[#EE1F26] hover:bg-transparent hover:text-[#EE1F26] transition-all deuration-300">View Google reviews</NavLink>
+        <div className=" ">
+          <NavLink href={"#"} className=" block px-7 py-4 bg-[#EE1F26] rounded-full font-graphikTrial font-medium text-base text-white uppercase border border-[#EE1F26] hover:bg-transparent hover:text-[#EE1F26] transition-all deuration-300">View Google reviews</NavLink>
         </div>
       </div>
       <TestimonialSlider/>

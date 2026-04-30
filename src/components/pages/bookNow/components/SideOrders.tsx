@@ -1,6 +1,6 @@
 import { useState } from "react";
 import InputBottomText from "./InputBottomText";
-import InputComponent from "./InputComponent";
+import InputComponent from "../../../common/inputFields/InputComponent";
 import MainTitle from "../../../common/Titles/MainTitle";
 import ButtonComponent from "./ButtonComponent";
 type FormDataType = {

@@ -174,3 +174,18 @@ body {
   line-height: 33px;
   font-size: 16px;
 }
+.custom-pagination .swiper-pagination-bullet {
+  background: #d1d5db;
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+}
+
+.custom-pagination .swiper-pagination-bullet-active {
+  background: #ef4444 !important;
+  opacity: 1;
+  height: 8px;
+  width: 60px;
+  border-radius: 9999px;
+}

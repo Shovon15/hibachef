@@ -22,9 +22,8 @@ const HomeComponent = ({ data }: Props) => {
       <MenuSection />
 
       <LocationSection />
-
+      <Review className="py-20" mainTitle="Customer" spanTitle="Reviews" />
       <GallerySection />
-      <Review/>
     </ContentContainer>
   );
 };

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ButtonComponent from "./ButtonComponent";
 import InputBottomText from "./InputBottomText";
-import InputComponent from "./InputComponent";
+import InputComponent from "../../../common/inputFields/InputComponent";
 import MainTitle from "../../../common/Titles/MainTitle";
 type FormDataType ={
   personQty: number;

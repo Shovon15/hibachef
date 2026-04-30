@@ -1,5 +1,5 @@
 import { useState } from "react";
-import InputComponent from "./InputComponent";
+import InputComponent from "../../../common/inputFields/InputComponent";
 import ButtonComponent from "./ButtonComponent";
 import MainTitle from "../../../common/Titles/MainTitle";
 type Props = {

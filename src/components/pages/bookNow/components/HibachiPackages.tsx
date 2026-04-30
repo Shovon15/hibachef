@@ -1,6 +1,6 @@
 import { useState } from "react";
 import MainTitle from "../../../common/Titles/MainTitle";
-import InputComponent from "./InputComponent";
+import InputComponent from "../../../common/inputFields/InputComponent";
 import ButtonComponent from "./ButtonComponent";
 import { EntreeChoices } from "./EntreeChoices";
 import InputBottomText from "./InputBottomText";

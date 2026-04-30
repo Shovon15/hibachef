@@ -1,9 +1,9 @@
 "use client";
 
 import X from "@/assets/icons/X";
-import { Dropdown } from "./Dropdown";
-import InputComponent from "./InputComponent";
+import InputComponent from "../../../common/inputFields/InputComponent";
 import CloseIcon from "@/assets/icons/CloseIcon";
+import { Dropdown } from "@/components/common/inputFields/Dropdown";
 
 interface EntreeItem {
   id: string;
@@ -74,7 +74,7 @@ export function EntreeChoices({ formData, setFormData }: EntreeChoicesProps) {
             {/* Entree Dropdown */}
             <div className="flex-1">
               <Dropdown
-                label="Entree"
+                // label="Entree"
                 options={ENTREE_OPTIONS}
                 placeholder="Select entree Choice"
                 value={item.entree}

@@ -8,6 +8,8 @@ type Props = {
   title?: string;
   title2?: string;
   description: string;
+  mainTextColor?: string;
+  spanTextColor?: string;
 };
 
 const PageBanner = ({
@@ -15,6 +17,8 @@ const PageBanner = ({
   title = "",
   title2 = "",
   description = "",
+  mainTextColor = "text-white",
+  spanTextColor = "text-[#EE2026]",
 }: Props) => {
   return (
     <div className="relative w-full h-[476px] max-h-[476px]  overflow-hidden">
@@ -29,8 +33,8 @@ const PageBanner = ({
       {/* 🧊 Content on top */}
       <ContentContainer className="relative z-20 h-full flex flex-col justify-end py-28!">
         <div className="">
-          <h1 className="text-white text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4.375rem)] font-normal font-cooperBlack">
-            {title} <span className="text-[#EE2026]">{title2}</span>
+          <h1 className={`text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4.375rem)] font-normal font-cooperBlack ${mainTextColor}`}>
+            {title} <span className={spanTextColor}>{title2}</span>
           </h1>
 
           <p className="lg:max-w-[75%] font-normal text-white text-sm lg:text-base leading-relaxed mt-4">

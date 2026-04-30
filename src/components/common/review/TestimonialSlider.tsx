@@ -1,133 +1,152 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import ImageComponent from "../image";
+import { getTimeAgo } from "@/utils/helpers/getTimeAgo";
+import SliderArrowIcon from "@/assets/icons/SliderArrowIcon";
+import StarRating from "./StarRating";
+import GoogleFavicon from "@/assets/icons/GoogleFavicon";
 
 const reviews = [
   {
     name: "James Wilson",
-    time: "1d ago",
+    time: "2025-12-29T11:30:00",
     rating: 5,
-    text: "Absolutely amazing hibachi experience! The chefs were incredibly skilled, performing tricks while cooking delicious meals right in front of us.",
+    text: "Absolutely amazing hibachi experience! The chefs were incredibly skilled, performing tricks while cooking delicious meals right in front of us. The flavors were vibrant, and the atmosphere was lively. Plus, the after-dinner dessert was a delightful surprise!",
   },
   {
     name: "Olivia Bennett",
-    time: "1d ago",
+    time: "2024-12-29T01:30:00",
     rating: 4,
-    text: "What a fantastic hibachi dinner! The chef's showmanship was top-notch, and the food was bursting with flavor.",
+    text: "What a fantastic hibachi dinner! The chef's showmanship was top-notch, and the food was bursting with flavor. We loved the interactive cooking style, and the service was impeccable. A perfect night out with friends!",
   },
   {
     name: "Natalie Rodriguez",
-    time: "12h ago",
-    rating: 3,
-    text: "An unforgettable hibachi night! The chef entertained us while serving delicious dishes.",
+    time: "2024-05-26T12:30:00",
+    rating: 3.5,
+    text: "An unforgettable hibachi night! The chef entertained us with his culinary skills while serving up mouthwatering dishes. The combination of fresh ingredients and fun atmosphere made it a memorable dining experience. Highly recommend!",
   },
   {
     name: "Natalie Rodriguez",
-    time: "12h ago",
+    time: "2026-09-29T09:30:00",
     rating: 2,
-    text: "An unforgettable hibachi night! The chef entertained us while serving delicious dishes.",
+    text: "What a fantastic hibachi dinner! The chef's showmanship was top-notch, and the food was bursting with flavor. We loved the interactive cooking style, and the service was impeccable. A perfect night out with friends!",
   },
   {
     name: "Natalie Rodriguez",
-    time: "12h ago",
+    time: "2026-01-12T08:30:00",
     rating: 5,
-    text: "An unforgettable hibachi night! The chef entertained us while serving delicious dishes.",
+    text: "An unforgettable hibachi night! The chef entertained us with his culinary skills while serving up mouthwatering dishes. The combination of fresh ingredients and fun atmosphere made it a memorable dining experience. Highly recommend!",
   },
   {
     name: "Natalie Rodriguez",
-    time: "12h ago",
+    time: "2024-05-29T11:30:00",
     rating: 4,
-    text: "An unforgettable hibachi night! The chef entertained us while serving delicious dishes.",
+    text: "Absolutely amazing hibachi experience! The chefs were incredibly skilled, performing tricks while cooking delicious meals right in front of us. The flavors were vibrant, and the atmosphere was lively. Plus, the after-dinner dessert was a delightful surprise!",
   },
 ];
 
-const Star = ({ filled }: { filled: boolean }) => (
-  <svg
-    className="w-4 h-4"
-    viewBox="0 0 24 24"
-    fill={filled ? "#FACC15" : "#E5E7EB"}
-  >
-    <path d="M12 17.27L18.18 21l-1.64-7.03L22 
-    9.24l-7.19-.61L12 2 9.19 8.63 2 
-    9.24l5.46 4.73L5.82 21z" />
-  </svg>
-);
-
 export default function TestimonialSlider() {
   return (
-    <div className="relative px-10 py-10 ">
-      <Swiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={30}
-        slidesPerView={3.4}
-        loop
-        navigation={{
-          nextEl: ".next-btn",
-          prevEl: ".prev-btn",
-        }}
-        pagination={{
-          el: ".custom-pagination",
-          clickable: true,
-        }}
-        breakpoints={{
-          0: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-      >
-        {reviews.map((item, i) => (
-          <SwiperSlide key={i}>
-            <div className="bg-[#F2F2F2] rounded-2xl p-5 shadow-sm h-full">
-              {/* Header */}
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <h3 className="font-semibold text-sm">{item.name}</h3>
-                  <p className="text-xs text-gray-400">{item.time}</p>
+    <div className=" py-9">
+      <div className="relative">
+        <Swiper
+          modules={[Navigation, EffectCoverflow, Pagination]}
+          effect="coverflow"
+          centeredSlides
+          loop
+          loopPreventsSliding={false}
+          pagination={{
+            el: ".custom-pagination",
+            clickable: true,
+          }}
+          slidesPerView="auto"
+          spaceBetween={20}
+          speed={1200}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          touchRatio={1}
+          resistanceRatio={0.85}
+          navigation={{
+            nextEl: ".next-btn",
+            prevEl: ".prev-btn",
+          }}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 0,
+            modifier: 0,
+            slideShadows: false,
+          }}
+        >
+          {reviews.map((item, i) => (
+            <SwiperSlide key={i} className="max-w-[370px] ">
+              <div className="bg-[#F2F2F2] rounded-2xl p-5 shadow-sm h-full">
+                {/* Header */}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex justify-start items-start gap-4">
+                    <div className="w-10 h-10 rounded-full">
+                      <ImageComponent
+                        src={"/user-img.jpg"}
+                        alt="user"
+                        width={1000}
+                        height={1000}
+                        className="rounded-full"
+                      />
+                    </div>
+
+                    <div>
+                      <h3 className="font-semibold font-graphikTrial text-[#1A1A1A] text-base">{item.name}</h3>
+                      <p className="text-xs text-[#00000080] font-graphikTrial font-normal mt-1">
+                        {getTimeAgo(item.time)}
+                      </p>
+                    </div>
+                  </div>
+
+                  <GoogleFavicon className="w-6 h-6" />
                 </div>
-                <img
-                  src="https://www.google.com/favicon.ico"
-                  alt="google"
-                  className="w-5 h-5"
-                />
+
+                {/* Stars */}
+                <div className="flex gap-1 my-4">
+                  <StarRating initialValue={item.rating} readOnly />
+                </div>
+
+                {/* Text */}
+                <p className="text-sm lg:text-base font-graphikTrial font-normal text-[#1A1A1A] line-clamp-4 ">
+                  {item.text}
+                </p>
+
+                {/* Read more */}
+                <button className="text-[#E4002B] text-sm lg:text-base  mt-4 font-semibold uppercase underline">
+                  READ MORE
+                </button>
               </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-              {/* Stars */}
-              <div className="flex gap-1 mb-3">
-                {[...Array(5)].map((_, index) => (
-                  <Star key={index} filled={index < item.rating} />
-                ))}
-              </div>
-
-              {/* Text */}
-              <p className="text-sm text-gray-600 line-clamp-3">
-                {item.text}
-              </p>
-
-              {/* Read more */}
-              <button className="text-red-500 text-xs mt-3 font-semibold">
-                READ MORE
-              </button>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-
-      {/* Navigation Buttons */}
-      <button className="prev-btn absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full w-8 h-8 flex items-center justify-center">
-        ‹
-      </button>
-
-      <button className="next-btn absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-red-500 text-white rounded-full w-8 h-8 flex items-center justify-center">
-        ›
-      </button>
+        {/* Navigation Buttons */}
+        <div className="bg-[linear-gradient(270deg,rgba(255,255,255,0)_0%,#ffffff_100%)] absolute left-0 h-full top-0  z-10 w-[6%] flex justify-center items-center  ">
+          <button className="prev-btn  bg-white shadow rounded-full w-10 h-10  flex items-center justify-center p-3 text-[#E4002B] border border-[#E4002B] hover:bg-[#E4002B] hover:text-white">
+            <SliderArrowIcon />
+          </button>
+        </div>
+        <div className="bg-[linear-gradient(90deg,rgba(255,255,255,0)_0%,#ffffff_100%)] absolute right-0 h-full top-0  z-10 w-[6%] flex justify-center items-center  ">
+          <button className="next-btn bg-white shadow rounded-full w-10 h-10  flex items-center justify-center p-3 text-[#E4002B] border border-[#E4002B] hover:bg-[#E4002B] hover:text-white">
+            <SliderArrowIcon className="rotate-180" />
+          </button>
+        </div>
+      </div>
 
       {/* Pagination */}
-      <div className="custom-pagination mt-6 flex justify-center gap-2" />
+      <div className="custom-pagination mt-6 flex justify-center items-center gap-2" />
     </div>
   );
 }
