@@ -3,6 +3,7 @@ import React from "react";
 import locationImage from "@/assets/images/location-img.png";
 import ImageComponent from "@/components/common/image";
 import PrimaryButton from "@/components/common/button/PrimaryButton";
+import LocationMap from "../../locations/components/LocationMap";
 
 type Props = { data?: any };
 
@@ -14,8 +15,9 @@ const LocationSection = ({ data }: Props) => {
         highlight={["Hibachef"]}
         highlightClassName="text-primary"
       />
+      <LocationMap />
 
-      <div className="py-10 flex justify-center items-center gap-10">
+      {/* <div className="py-10 flex justify-center items-center gap-10">
         <div className="w-[60%]">
           <ImageComponent
             src={locationImage}
@@ -32,7 +34,7 @@ const LocationSection = ({ data }: Props) => {
           <p>Contact with us or book a Hibachef in Colorado</p>
           <PrimaryButton>Book Now</PrimaryButton>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
