@@ -9,7 +9,7 @@ const Review = ({mainTitle,spanTitle, className=""}:any) => {
   return (
     <ContentContainer className={className}>
       <MainTitle text1={mainTitle} text2={spanTitle} />
-      <div className="bg-[#F2F2F2] rounded-3xl p-6 flex flex-col lg:flex-row justify-between items-center mt-16">
+      <div className="bg-[#F2F2F2] rounded-3xl p-6 flex flex-col lg:flex-row justify-between items-center mt-10 lg:mt-16 gap-8">
         <div>
           <h3 className="font-graphikTrial font-medium text-2xl text-[#1A1A1A] flex justify-start items-center gap-2">
             <GoogleLogo />
@@ -25,8 +25,8 @@ const Review = ({mainTitle,spanTitle, className=""}:any) => {
             </p>
           </div>
         </div>
-        <div className=" ">
-          <NavLink href={"#"} className=" block px-7 py-4 bg-[#EE1F26] rounded-full font-graphikTrial font-medium text-base text-white uppercase border border-[#EE1F26] hover:bg-transparent hover:text-[#EE1F26] transition-all deuration-300">View Google reviews</NavLink>
+        <div className="w-full lg:w-fit">
+          <NavLink href={"#"} className=" block px-7 py-4 bg-[#EE1F26] rounded-full font-graphikTrial font-medium text-base text-white uppercase border border-[#EE1F26] hover:bg-transparent hover:text-[#EE1F26] transition-all deuration-300  text-center">View Google reviews</NavLink>
         </div>
       </div>
       <TestimonialSlider/>

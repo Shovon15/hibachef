@@ -87,7 +87,7 @@ export default function TestimonialSlider() {
           }}
         >
           {reviews.map((item, i) => (
-            <SwiperSlide key={i} className="max-w-[370px] ">
+            <SwiperSlide key={i} className="max-w-[75%] lg:max-w-[370px] ">
               <div className="bg-[#F2F2F2] rounded-2xl p-5 shadow-sm h-full">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-3">
@@ -133,13 +133,13 @@ export default function TestimonialSlider() {
         </Swiper>
 
         {/* Navigation Buttons */}
-        <div className="bg-[linear-gradient(270deg,rgba(255,255,255,0)_0%,#ffffff_100%)] absolute left-0 h-full top-0  z-10 w-[6%] flex justify-center items-center  ">
-          <button className="prev-btn  bg-white shadow rounded-full w-10 h-10  flex items-center justify-center p-3 text-[#E4002B] border border-[#E4002B] hover:bg-[#E4002B] hover:text-white">
+        <div className="bg-[linear-gradient(270deg,rgba(255,255,255,0)_0%,#ffffff_100%)] absolute -left-0.5 lg:left-0 h-full top-0  z-10 w-[6%] flex justify-center items-center  ">
+          <button className="prev-btn  bg-white shadow rounded-full w-10 h-10 hidden lg:flex items-center justify-center p-3 text-[#E4002B] border border-[#E4002B] hover:bg-[#E4002B] hover:text-white ">
             <SliderArrowIcon />
           </button>
         </div>
-        <div className="bg-[linear-gradient(90deg,rgba(255,255,255,0)_0%,#ffffff_100%)] absolute right-0 h-full top-0  z-10 w-[6%] flex justify-center items-center  ">
-          <button className="next-btn bg-white shadow rounded-full w-10 h-10  flex items-center justify-center p-3 text-[#E4002B] border border-[#E4002B] hover:bg-[#E4002B] hover:text-white">
+        <div className="bg-[linear-gradient(90deg,rgba(255,255,255,0)_0%,#ffffff_100%)] absolute -right-0.5 lg:right-0 h-full top-0  z-10 w-[6%] flex justify-center items-center  ">
+          <button className="next-btn bg-white shadow rounded-full w-10 h-10  hidden lg:flex items-center justify-center p-3 text-[#E4002B] border border-[#E4002B] hover:bg-[#E4002B] hover:text-white">
             <SliderArrowIcon className="rotate-180" />
           </button>
         </div>
