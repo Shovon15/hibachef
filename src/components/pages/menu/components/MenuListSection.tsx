@@ -1,4 +1,4 @@
-import ImageComponent from "@/components/common/image";
+import ImageComponent, { DEFAULT_IMAGE } from "@/components/common/image";
 import ContentContainer from "@/components/layout/container/contentContainer";
 import React from "react";
 
@@ -22,7 +22,7 @@ const MenuListSection = (props: Props) => {
       <Shape />
       <div className="w-full lg:w-[50%]">
         <ImageComponent
-          src={""}
+          src={DEFAULT_IMAGE}
           alt="..."
           className="w-full h-full object-cover rounded-full"
         />

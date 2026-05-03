@@ -9,7 +9,7 @@ type Props = { data?: any };
 
 const MenuSection = ({ data }: Props) => {
   return (
-    <div className="relative h-screen overflow-hidden"> 
+    <div className="relative py-10  overflow-hidden">
       {/* Background Image */}
       <ImageComponent
         src={menuBg}
@@ -34,8 +34,8 @@ const MenuSection = ({ data }: Props) => {
             <p className="text-white/70">This is glowing border</p>
           </AnimatedBorderCard> */}
 
-          {/* <MenuCard />
-          <MenuCard /> */}
+          <MenuCard />
+          <MenuCard />
         </div>
       </div>
     </div>
