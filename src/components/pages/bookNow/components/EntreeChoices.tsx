@@ -99,7 +99,7 @@ export function EntreeChoices({ formData, setFormData }: EntreeChoicesProps) {
             {formData.entreeChoices.length > 1 && (
               <button
                 onClick={() => handleRemoveEntree(item.id)}
-                className="text-gray-600 hover:text-gray-900 transition-colors pb-3"
+                className="bg-[#C8C8C8] transition-colors  w-6 h-6 rounded-full"
               >
                 <CloseIcon/>
               </button>

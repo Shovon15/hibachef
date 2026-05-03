@@ -31,7 +31,7 @@ const PageBanner = ({
       <div className="absolute inset-0 bg-[linear-gradient(270deg,rgba(30,30,30,0)_0%,#000000_70.82%)] z-10" />
 
       {/* 🧊 Content on top */}
-      <ContentContainer className="relative z-20 h-full flex flex-col justify-end py-28!">
+      <ContentContainer className="relative z-20 h-full flex flex-col justify-end py-24! lg:py-28!">
         <div className="">
           <h1 className={`text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4.375rem)] font-normal font-cooperBlack ${mainTextColor}`}>
             {title} <span className={spanTextColor}>{title2}</span>

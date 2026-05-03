@@ -35,9 +35,20 @@ const ContactForm = () => {
     "Lobster Tail",
     "Duck Breast",
   ];
+  const description = `
+                        <p>
+                          At Hibachi Chef at Home, we believe your special event deserves an extraordinary culinary touch. For all the details on how we can make your occasion unforgettable, contact us today. Whether it’s a corporate event, family BBQ, graduation party, or other personal gathering, we’re ready to assist with tailored options that fit your needs.
+                        </p>
+                        <p>
+                          Contact us or fill out our contact form, and one of our experts will reach out to discuss our affordable catering options, mouthwatering menu, and customizable packages.
+                        </p>
+                        <p>
+                          We promise quick responses and top-notch service to ensure your event is a hit, with delicious food and a touch of hibachi flair in your own backyard.
+                        </p>`
+                      ;
   return (
-    <div className="bg-[#000000]">
-      <ContentContainer className="py-32 grid grid-cols-1 lg:grid-cols-2">
+    <div className="bg-[#000000] mt-10 lg:mt-32">
+      <ContentContainer className="pt-16 lg:pt-32 pb-32 lg:pb-40 grid grid-cols-1 lg:grid-cols-2 gap-7 lg:gap-24">
         <div>
           <MainTitle
             text1="Get In Touch "
@@ -51,9 +62,11 @@ const ContactForm = () => {
             textColor="text-white"
             className="text-start"
           />
+          <div dangerouslySetInnerHTML={{ __html: description }} className="text-white font-graphikTrial font-normal text-sm lg:text-base mt-9 lg:mt-10 space-y-5 lg:space-y-8"/>
         </div>
         <div>
-          <div className="grid gap-x-14 gap-y-8 lg:gap-y-6 grid-cols-1 lg:grid-cols-2">
+          <p className="font-graphikTrial font-semibold text-base text-white hidden lg:block">Start a conversation with us by filling out the form</p>
+          <div className="grid gap-x-14 gap-y-8 lg:gap-y-6 grid-cols-1 lg:grid-cols-2 lg:mt-6">
             <InputComponent
               label="First name *"
               name="firstName"
@@ -122,7 +135,7 @@ const ContactForm = () => {
               className="lg:col-span-2"
             />
           </div>
-          <button className="font-graphikTrial font-medium text-base text-[#FFFFFF] bg-[#EE1F26] py-4 px-16 rounded-full mt-14">
+          <button className="font-graphikTrial font-medium text-sm lg:text-base text-[#FFFFFF] bg-[#EE1F26] py-4 px-16 rounded-full mt-9 lg:mt-14 w-full lg:w-fit">
             Submit
           </button>
         </div>
