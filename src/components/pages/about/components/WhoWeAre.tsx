@@ -29,7 +29,7 @@ const WhoWeAre = () => {
           <div className="absolute -top-[10px] lg:-top-[17px] left-[18px] lg:left-[28px]  w-[calc(100%-18px)] lg:w-full h-[calc(100%+20px)] lg:h-[calc(100%+34px)] bg-[#EE1F26] "></div>
         </div>
       </div>
-    </div>
+    </div> 
   );
 };
 
