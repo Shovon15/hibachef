@@ -18,7 +18,7 @@ const AdditionalInfoSection = ({ data }: Props) => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col gap-20 justify-end items-center pt-88 pb-20  mx-auto px-4 log-green">
+      <div className="relative z-10 flex flex-col gap-20 justify-end items-center pt-88 pb-20  mx-auto px-4 ">
         <HighlightHeading
           text="Additional Information"
           highlight={[""]}

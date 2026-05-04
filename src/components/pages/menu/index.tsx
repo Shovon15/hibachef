@@ -17,6 +17,8 @@ const MenuPage = (props: Props) => {
       />
       <PackageSection />
       <MenuListSection />
+      <MenuListSection reverse={true} />
+      <MenuListSection />
       <AdditionalInfoSection />
     </div>
   );
