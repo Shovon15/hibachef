@@ -2,88 +2,76 @@
 import ContentContainer from "@/components/layout/container/contentContainer";
 import FAQItemComponent from "./FAQItemComponent";
 import { useState } from "react";
+import { Accordion } from "@/components/common/accordion/Accordion";
 
 const FaqSection = () => {
-  type FAQItem = {
-    id: number;
-    question: string;
-    answer: string;
-  };
-
-  const allFAQs: FAQItem[] = [
+  const faqData: IFaqItem[] = [
     {
-      id: 1,
-      question: "What is Hibachef?",
-      answer:
-        "Hibachef is your go-to platform for discovering and sharing authentic Japanese recipes, updated regularly with new dishes and cooking tips.\n\nJoin thousands of food lovers using Hibachef to explore recipes, impress friends, and cook delicious meals faster.",
+      title: "What is Hibachi catering?",
+      sub_title: "Live cooking experience",
+      content:
+        "Hibachi catering is a live cooking service where chefs prepare meals in front of your guests, combining entertainment with delicious food.",
     },
     {
-      id: 2,
-      question: "How often do you add new recipes to Hibachef?",
-      answer: "We add new recipes weekly to keep content fresh and exciting.",
+      title: "How many guests can you serve?",
+      sub_title: "Flexible group sizes",
+      content:
+        "We can accommodate small gatherings as well as large parties. Contact us for custom arrangements based on your guest count.",
     },
     {
-      id: 3,
-      question: "Is there a free trial available for Hibachef?",
-      answer: "Yes, we offer a limited free trial for new users.",
+      title: "Do you provide all cooking equipment?",
+      sub_title: "Fully equipped service",
+      content:
+        "Yes, our chefs bring all necessary equipment including grills, utensils, and ingredients.",
     },
     {
-      id: 4,
-      question: "Does Hibachef offer monthly subscription plans?",
-      answer: "Yes, monthly plans are available.",
+      title: "What menu options are available?",
+      sub_title: "Customizable menu",
+      content:
+        "We offer a variety of proteins including chicken, steak, shrimp, and vegetarian options. You can customize your menu.",
     },
     {
-      id: 5,
-      question: "Are monthly plans available for Hibachef subscriptions?",
-      answer: "Yes, flexible monthly plans are supported.",
+      title: "How long does the event last?",
+      sub_title: "Typical duration",
+      content:
+        "Most events last between 1.5 to 2 hours depending on the number of guests and menu selection.",
     },
     {
-      id: 6,
-      question: "Does Hibachef offer monthly subscription options?",
-      answer: "Yes, users can choose monthly billing.",
+      title: "Do you offer vegetarian options?",
+      sub_title: "Plant-based meals",
+      content:
+        "Yes, we provide delicious vegetarian and vegan-friendly dishes upon request.",
     },
     {
-      id: 7,
-      question: "Are there discounts for students and educators on Hibachef?",
-      answer:
-        "Yes, special discounts are available for students and educators.",
+      title: "What space is required?",
+      sub_title: "Setup requirements",
+      content:
+        "We typically need a flat outdoor or well-ventilated indoor space for safe grill setup.",
     },
     {
-      id: 8,
-      question: "What payment methods does Hibachef accept?",
-      answer:
-        "We accept credit cards, PayPal, and other major payment options.",
+      title: "How far in advance should I book?",
+      sub_title: "Booking timeline",
+      content:
+        "We recommend booking at least 1–2 weeks in advance to ensure availability.",
     },
     {
-      id: 9,
-      question: "Can I cancel my Hibachef subscription anytime?",
-      answer: "Yes, subscriptions can be canceled anytime.",
+      title: "Is there a deposit required?",
+      sub_title: "Payment policy",
+      content:
+        "Yes, a deposit is required to secure your booking. The remaining balance is due before the event.",
     },
     {
-      id: 10,
-      question: "How do I upgrade from a Basic to a Premium Hibachef plan?",
-      answer: "Go to account settings and choose upgrade plan.",
-    },
-    {
-      id: 11,
-      question:
-        "What’s the difference between Hibachef’s Premium and Team plans?",
-      answer: "Premium is for individuals; Team plans support collaboration.",
-    },
-    {
-      id: 12,
-      question: "What is Hibachef’s refund policy?",
-      answer: "Refunds are processed based on our refund policy terms.",
+      title: "What happens in case of bad weather?",
+      sub_title: "Weather policy",
+      content:
+        "We can reschedule or adjust the setup depending on weather conditions to ensure safety and comfort.",
     },
   ];
-  const [openIndex, setOpenIndex] = useState<string | null>("left-0");
 
-  const handleToggle = (key: string) => {
-    setOpenIndex(openIndex === key ? null : key);
-  };
   return (
     <ContentContainer className="pt-6 lg:pt-20  pb-26 lg:pb-36">
-      <div className=" grid grid-cols-1 md:grid-cols-2 gap-3">
+      <Accordion items={faqData} defaultOpenFirst={true} />
+      {/* <div className=" grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="space-y-3 lg:space-y-4">
           {allFAQs?.slice(0, allFAQs.length / 2)?.map((item, index) => {
             const key = `left-${index}`;
@@ -112,7 +100,7 @@ const FaqSection = () => {
               );
             })}
         </div>
-      </div>
+      </div> */}
     </ContentContainer>
   );
 };

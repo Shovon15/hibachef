@@ -34,6 +34,12 @@ type IHeading = {
   [key: string]: any;
 };
 
+interface IFaqItem {
+  title: string;
+  content: string | null;
+  sub_title: string | null;
+}
+
 // interface IPageSectionData {
 //   title: string;
 //   subtitle: string;
