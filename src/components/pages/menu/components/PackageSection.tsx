@@ -40,16 +40,16 @@ const PackageSection = ({ packages }: Props) => {
   const data = packages || defaultPackages;
 
   return (
-    <ContentContainer className="py-12 bg-gray-50">
+    <ContentContainer className="py-12 ">
       <HighlightHeading
         text="Hibachi Packages"
         highlight={["Packages"]}
         highlightClassName="text-primary"
-        className=""
+        className=" text-center py-5"
       />
 
-      <div className=" mx-auto px-4 pt-10">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-0 md:gap-4">
+      <div className=" mx-auto px-12 pt-10 max-w-[80%]">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-0 md:gap-8">
           {data.map((item, index) => (
             <div
               key={index}
@@ -57,7 +57,7 @@ const PackageSection = ({ packages }: Props) => {
                 relative w-full max-w-sm p-8 text-center transition-transform duration-300
                 ${
                   item.isFeatured
-                    ? "bg-[#E31837] text-white z-10 scale-105 shadow-2xl"
+                    ? "bg-[#E31837] text-white z-10 scale-115 shadow-2xl"
                     : "bg-white text-black z-0 shadow-xl"
                 }
                 flex flex-col items-center justify-center min-h-[350px]
