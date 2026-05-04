@@ -3,12 +3,13 @@ const MainTitle = ({
   text2,
   className = "",
   textColor = "text-[#000000]",
+  spanColor = "text-[#E4002B]",
 }: any) => {
   return (
     <h2
       className={`text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4rem)] font-normal text-center font-cooperBlack ${textColor} ${className}`}
     >
-      {text1} <span className="text-[#E4002B]">{text2}</span>
+      {text1} <span className={`${spanColor}`}>{text2}</span>
     </h2>
   );
 };
