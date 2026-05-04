@@ -4,6 +4,7 @@ import ContentContainer from "@/components/layout/container/contentContainer";
 import WhoWeAre from "./components/WhoWeAre";
 import WhatWeDo from "./components/WhatWeDo";
 import PartyPlan from "./components/PartyPlan";
+import WhyChoose from "./components/WhyChoose";
 
 type Props = { data?: any };
 
@@ -21,6 +22,7 @@ const AboutPage = (props: Props) => {
       <ContentContainer>
         <WhoWeAre/>
         <WhatWeDo/>
+        <WhyChoose/>
         <PartyPlan/>
       </ContentContainer>
     </div>
