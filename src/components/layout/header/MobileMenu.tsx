@@ -55,7 +55,7 @@ const MobileMenu: React.FC<MobileDropdownProps> = ({
   return (
     <div
       className={cn(
-        "lg:hidden fixed left-0 right-0 top-[75px] bottom-0 bg-[#000000E5] z-40 overflow-y-auto transition-transform duration-300 ease-in-out",
+        "lg:hidden fixed left-0 right-0 top-[0px] pt-[95px] bottom-0 bg-[#000000E5] z-40 overflow-y-auto transition-transform duration-300 ease-in-out",
         isOpen ? "translate-x-0" : "translate-x-full",
       )}
       data-lenis-prevent
