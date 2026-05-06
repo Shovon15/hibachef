@@ -75,14 +75,13 @@ const GalleryPage = (props: Props) => {
       <ContentContainer>
         <FeaturedVideos />
 
-        <HighlightHeading
-          text="Full Gallery"
-          highlight={["Gallery"]}
-          highlightClassName="text-primary "
-          className="text-center"
-        />
-
-        <div className="my-10">
+        <div className="my-32">
+          <HighlightHeading
+            text="Full Gallery"
+            highlight={["Gallery"]}
+            highlightClassName="text-primary "
+            className="text-center mb-14"
+          />
           <GalleryGridSection data={galleryData} />
         </div>
       </ContentContainer>
