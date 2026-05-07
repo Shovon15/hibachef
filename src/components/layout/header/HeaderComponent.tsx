@@ -22,7 +22,7 @@ const HeaderComponent = () => {
 
   return (
     <ContentContainer
-      className={`fixed top-7.5 w-full z-30 flex items-center transition-all duration-300 ease-in-out h-[60px] lg:h-[100px] lg:px-[0vw]
+      className={`fixed top-7.5 w-full z-40 flex items-center transition-all duration-300 ease-in-out h-[60px] lg:h-[100px] lg:px-[0vw]
          2xl:px-[10.67vw]`}
     >
       <header className="w-[92vw] mx-auto flex items-center justify-between h-full px-2 bg-[#ffffff]  rounded-full z-40">
