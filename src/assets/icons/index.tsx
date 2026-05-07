@@ -8,3 +8,4 @@ export { default as PinterestIcon } from "./Pinterest";
 export { default as LeftArrowIcon } from "./SliderArrowIcon";
 export { default as RightArrowIcon } from "./RightArrow";
 export { default as PhoneIcon } from "./PhoneIcon";
+export { default as GoogleIcon } from "./Google";

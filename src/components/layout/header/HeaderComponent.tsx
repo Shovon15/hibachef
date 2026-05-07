@@ -22,10 +22,10 @@ const HeaderComponent = () => {
 
   return (
     <ContentContainer
-      className={`fixed top-7.5 w-full z-30 flex items-center transition-all duration-300 ease-in-out h-[60px] lg:h-[100px] lg:px-[0vw]
+      className={`fixed top-7.5 w-full z-[60] flex items-center transition-all duration-300 ease-in-out h-[60px] lg:h-[100px] lg:px-[0vw]
          2xl:px-[10.67vw]`}
     >
-      <header className="w-[92vw] mx-auto flex items-center justify-between h-full px-2 bg-[#ffffff]  rounded-full z-40">
+      <header className="w-[92vw] mx-auto flex items-center justify-between h-full px-2 bg-[#ffffff]  rounded-full z-[9999]">
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-4 md:pl-5 lg:hidden">
             <button
@@ -49,9 +49,7 @@ const HeaderComponent = () => {
 
         <div className=" flex justify-center items-center gap-2 lg:gap-5">
           <NavLink href={routes.bookNow}>
-            <PrimaryButton className="!py-2.5 px-5 !text-nowrap">
-              Book Now
-            </PrimaryButton>
+            <PrimaryButton className=" !text-nowrap">Book Now</PrimaryButton>
           </NavLink>
           <NavLink href={routes.contact}>
             <IconButton icon={<PhoneIcon />} className="!p-2.5 lg:!p-[14px]" />

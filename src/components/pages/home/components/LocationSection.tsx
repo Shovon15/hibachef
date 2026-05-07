@@ -9,7 +9,7 @@ type Props = { data?: any };
 
 const LocationSection = ({ data }: Props) => {
   return (
-    <div className="p-10 text-center">
+    <div className="">
       {/* <HighlightHeading
         text="Select your Location to book your Hibachef"
         highlight={["Hibachef"]}
