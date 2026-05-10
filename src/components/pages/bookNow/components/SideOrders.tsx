@@ -48,7 +48,7 @@ const SideOrders = ({ setCurrentStep }: Props) => {
   };
 
   const handlePrevious = () => {
-    console.log("Going to previous step");
+
     setCurrentStep(3);
   };
   return (

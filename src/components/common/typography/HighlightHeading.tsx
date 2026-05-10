@@ -1,5 +1,6 @@
 import { cn } from "@/utils/helpers/cn";
 import { HeadingOne } from "./Heading";
+import { ReactNode } from "react";
 
 type HighlightHeadingProps = {
   text: string;
@@ -20,9 +21,10 @@ export const HighlightHeading = ({
   const renderText = () => {
     if (!highlight) return text;
 
-    let parts: (string | JSX.Element)[] = [text];
+    let parts: (string | ReactNode)[] = [text];
 
     highlights.forEach((word) => {
+      if (!word) return;
       parts = parts.flatMap((part) => {
         if (typeof part !== "string") return part;
 

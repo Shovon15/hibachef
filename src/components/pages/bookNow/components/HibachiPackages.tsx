@@ -36,12 +36,12 @@ const HibachiPackages = ({ setCurrentStep }: Props) => {
   };
 
   const handleProceed = () => {
-    console.log("Proceeding with:", formData);
+
     setCurrentStep(4);
   };
 
   const handlePrevious = () => {
-    console.log("Going to previous step");
+  
     setCurrentStep(2);
   };
 

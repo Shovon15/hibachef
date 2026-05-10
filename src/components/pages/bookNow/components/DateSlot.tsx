@@ -64,7 +64,7 @@ const DateSlot = ({
       new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1),
     );
   };
-  console.log("object");
+
   return (
     <div className="lg:pl-20">
       <MainTitle text1="Pick Your" text2="Date & Slot" />

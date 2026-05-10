@@ -27,7 +27,9 @@ const MenuListSection = ({ reverse = false, data }: Props) => {
       </div> */}
 
       {/* Image */}
-      <div className={`w-full lg:w-[50%] flex items-center justify-center relative py-7 lg:py-32 ${reverse ? "pl-5" : "pr-5"}`}>
+      <div
+        className={`w-full lg:w-[50%] flex items-center justify-center relative py-7 lg:py-32 ${reverse ? "pl-5" : "pr-5"}`}
+      >
         <ImageComponent
           src={menuImage}
           alt="..."
@@ -39,8 +41,8 @@ const MenuListSection = ({ reverse = false, data }: Props) => {
       </div>
 
       {/* Content */}
-      <div className="w-full lg:w-[50%] px-5">
-        <div className={`max-w-[550px]   ${reverse ? "ml-auto" : "mr-auto"}`}>
+      <div className="w-full lg:w-[50%] px-5 my-auto">
+        <div className={`max-w-[550px]    ${reverse ? "ml-auto" : "mr-auto"}`}>
           <h2 className="text-3xl font-black text-primary uppercase mb-8 font-cooperBlack">
             Entree Choice
           </h2>

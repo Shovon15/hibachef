@@ -75,7 +75,7 @@ const GalleryPage = (props: Props) => {
       <ContentContainer>
         <FeaturedVideos />
 
-        <div className="my-32">
+        <div className="my-20">
           <HighlightHeading
             text="Full Gallery"
             highlight={["Gallery"]}
