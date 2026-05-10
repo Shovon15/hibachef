@@ -10,12 +10,13 @@ import { useState } from "react";
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     firstName: "",
-    lastName: "",
+    // lastName: "",
     email: "",
-    organization: "",
-    jobTitle: "",
+    // organization: "",
+    // jobTitle: "",
     phone: "",
-    country: "",
+    zipCode: "",
+    // country: "",
     message: "",
   });
 
@@ -68,7 +69,7 @@ const ContactForm = () => {
           <p className="font-graphikTrial font-semibold text-base text-white hidden lg:block">Start a conversation with us by filling out the form</p>
           <div className="grid gap-x-14 gap-y-8 lg:gap-y-6 grid-cols-1 lg:grid-cols-2 lg:mt-6">
             <InputComponent
-              label="First name *"
+              label="Name *"
               name="firstName"
               type="text"
               value={formData.firstName}
@@ -77,14 +78,14 @@ const ContactForm = () => {
               inputTextColor="text-white"
             />
 
-            <InputComponent
+            {/* <InputComponent
               label="Last name *"
               name="leastName"
               type="text"
               value={formData.lastName}
               onChange={handleChange}
               inputTextColor="text-white"
-            />
+            /> */}
             <InputComponent
               label="E-mail"
               name="email"
@@ -93,22 +94,14 @@ const ContactForm = () => {
               onChange={handleChange}
               inputTextColor="text-white"
             />
-            <InputComponent
+            {/* <InputComponent
               label="Organization"
               name="organization"
               type="text"
               value={formData.organization}
               onChange={handleChange}
               inputTextColor="text-white"
-            />
-            <InputComponent
-              label="Job Title"
-              name="jobTitle"
-              type="text"
-              value={formData.jobTitle}
-              onChange={handleChange}
-              inputTextColor="text-white"
-            />
+            /> */}
             <InputComponent
               label="Phone Number"
               name="phone"
@@ -117,7 +110,15 @@ const ContactForm = () => {
               onChange={handleChange}
               inputTextColor="text-white"
             />
-            <Dropdown
+            <InputComponent
+              label="ZIP Code"
+              name="zipCode"
+              type="text"
+              value={formData.zipCode}
+              onChange={handleChange}
+              inputTextColor="text-white"
+            />
+            {/* <Dropdown
               label="Country *"
               options={OPTIONS}
               placeholder=""
@@ -125,7 +126,7 @@ const ContactForm = () => {
               onChange={handleChange}
               className="lg:col-span-2"
               inputTextColor="text-white"
-            />
+            /> */}
             <TextareaComponent
               label="Message"
               name="message"

@@ -46,7 +46,7 @@ const BlogCard = ({
           sem. Ut ut maecenas risus.
         </p>
         <NavLink
-          href="#"
+          href="/blog/blog-post"
           className="text-[#E4002B] font-graphikTrial text-base font-normal uppercase underline mt-6 block"
         >
           Read More
