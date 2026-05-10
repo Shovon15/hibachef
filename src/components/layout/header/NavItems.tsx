@@ -28,7 +28,7 @@ const NavItems = ({ navItems }: Props) => {
   };
 
   return (
-    <nav className="relative hidden lg:flex gap-[6px] h-full">
+    <nav className="relative hidden lg:flex gap-1 xl:gap-[6px] h-full">
       {navItems.map((item: any, index: number) => {
         const linkPath = item.slug === "home" ? "/" : `/${item.slug}`;
 
@@ -48,10 +48,10 @@ const NavItems = ({ navItems }: Props) => {
             <NavLink
               href={linkPath}
               className={cn(
-                "relative z-20 px-2 py-1 2xl:px-5 xl:py-2 h-[52px] flex items-center justify-center cursor-pointer font-graphikTrial text-sm transition-nav duration-200 ease-smooth whitespace-nowrap group leading-[22px] text-[clamp(14px,0.5vw,20px)] xl:text-[clamp(14px,2vw,20px)] uppercase rounded-full ",
+                "relative z-20 px-2.5 py-0.5 2xl:px-5 xl:py-2  flex items-center justify-center cursor-pointer font-graphikTrial text-sm transition-nav duration-200 ease-smooth whitespace-nowrap group leading-[22px] text-[clamp(13px,1.042vw,20px)] uppercase rounded-full font-graphikTrial ",
                 isActive
-                  ? "text-primary font-[700] bg-[#F5F5F5] " // Active style
-                  : "text-foreground hover:!text-[#e4002b] font-[500] hover:bg-[#F5F5F5]", // Hover style
+                  ? "text-primary font-bold bg-[#F5F5F5] " // Active style
+                  : "text-foreground hover:!text-[#e4002b] font-medium hover:bg-[#F5F5F5]", // Hover style
               )}
             >
               {item.title}
