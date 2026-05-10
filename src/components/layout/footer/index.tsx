@@ -10,9 +10,7 @@ const Footer = ({ data }: any) => {
     <div className="">
       <footer className="w-full relative">
         <TopSection />
-        {/* <div className="fixed bottom-0 left-0 w-full  z-[-10]"> */}
         <BottomSection />
-        {/* </div> */}
       </footer>
     </div>
   );

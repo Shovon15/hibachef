@@ -39,13 +39,13 @@ const BlogDetailBanner = () => {
               className={`flex justify-start items-center gap-3 font-graphikTrial text-lg mt-5 font-normal  text-[#FFFFFF]`}
             >
               <p>June 28, 2018</p>{" "}
-              <span
+              {/* <span
                 className={`w-1.5 h-1.5  rounded-full  bg-[#EE1F26]`}
               ></span>{" "}
               <p className="flex justify-start items-center gap-1">
                 <ShareIcon />
                 1K shares
-              </p>{" "}
+              </p>{" "} */}
             </div>
           </div>
         </ContentContainer>

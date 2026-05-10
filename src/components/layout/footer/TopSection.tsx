@@ -64,11 +64,11 @@ const TopSection = (props: Props) => {
           experience they won’t soon forget!
         </p>
 
-        <div className="w-full text-center">
+        <NavLink href={routes.bookNow} className="w-full text-center">
           <PrimaryButton className="block w-full lg:inline-block lg:w-auto">
             Book Now
           </PrimaryButton>
-        </div>
+        </NavLink>
       </ContentContainer>
     </div>
   );
