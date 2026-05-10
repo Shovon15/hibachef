@@ -15,14 +15,14 @@ type Props = {
 };
 const HomeComponent = ({ data }: Props) => {
   return (
-    <ContentContainer disablePR disablePL className="">
+    <ContentContainer disablePR disablePL className=" !bg-transparent">
       <HomeBanner data={""} />
       <DiningSection />
 
       <MenuSection />
 
       <LocationSection />
-      <Review className="py-20" mainTitle="Customer" spanTitle="Reviews" />
+      <Review className="py-10" mainTitle="Customer" spanTitle="Reviews" />
       <GallerySection />
     </ContentContainer>
   );

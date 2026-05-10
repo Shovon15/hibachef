@@ -8,17 +8,20 @@ type Props = { data?: any };
 
 const DiningSection = ({ data }: Props) => {
   return (
-    <div className="py-10">
+    <div className="py-10 lg:py-20">
       <ContentContainer className="flex flex-col gap-10 lg:flex-row justify-center items-center">
-        <div className="w-full lg:w-[50%] flex justify-center gap-5">
-          <div className="w-[299px] h-[634px] ">
+        <div className="w-full lg:w-1/2 grid grid-cols-2 gap-3 lg:gap-5 items-start">
+          {/* Left Image */}
+          <div className="aspect-[299/634] overflow-hidden">
             <ImageComponent
               src={diningImage}
               alt="background"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-[299px] h-[634px] mt-14">
+
+          {/* Right Image */}
+          <div className="aspect-[299/634] overflow-hidden mt-8 lg:mt-14">
             <ImageComponent
               src={diningImage}
               alt="background"
@@ -32,7 +35,7 @@ const DiningSection = ({ data }: Props) => {
             highlight={["Live-Fire"]}
             highlightClassName="text-primary"
           />
-          <p>
+          <p className="pt-5">
             Convallis lectus adipiscing ultrices ullamcorper. Aliquet diam
             ornare ut porttitor metus sit sapien in. Faucibus egestas
             consectetur nunc blandit ipsum aliquam tortor mus. Elementum

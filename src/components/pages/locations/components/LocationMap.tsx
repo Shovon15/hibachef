@@ -171,7 +171,7 @@ const LocationMap = ({ data }: Props) => {
           {mouseTooltip && <MapTooltip {...mouseTooltip} />}
         </div>
 
-        <div className="w-full lg:w-[40%] flex flex-col gap-5 justify-center items-start text-left">
+        <div className="w-full lg:w-[40%] flex flex-col gap-5 justify-center text-centers lg:items-start text-center lg:text-left">
           <h3 className="font-cooperBlack font-[400] text-[48px]">
             {activeArea?.name}
           </h3>

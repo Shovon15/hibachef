@@ -14,20 +14,23 @@ type Props = {
 };
 
 const HomeBanner = ({ data }: Props) => {
-  const { isMobile } = useIsMobile();
+  const { isMobile, isMounted } = useIsMobile();
   const backgroundShape = isMobile ? bannerBgMobile : bannerBg;
+
   return (
-    <div className="relative">
-      <div className="absolute bottom-0 z-20">
-        <ImageComponent src={backgroundShape} alt="banner-background" />
-      </div>
+    <div className="relative ">
+      {isMounted && (
+        <div className="absolute bottom-0 z-20">
+          <ImageComponent src={backgroundShape} alt="banner-background" />
+        </div>
+      )}
       <div className="absolute inset-0 z-10 bg-[linear-gradient(to_right,#161616,#1B1B1B,#333333CC,#24242400,#16161600)]" />
 
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-[588px] overflow-hidden lg:h-full">
         <ImageComponent
           src={bannerImage}
           alt="banner"
-          className="object-cover w-full h-full"
+          className="w-full h-full object-cover object-center"
         />
 
         <div className="absolute top-[20%] md:inset-0 flex gap-5 items-center z-30">
@@ -37,14 +40,19 @@ const HomeBanner = ({ data }: Props) => {
                 text="we bring Hibachef to your backyard"
                 highlight={["Hibachef"]}
                 highlightClassName="text-primary"
-                className="capitalize"
+                className="capitalize w-[88%] md:w-auto"
               />
               <p className="max-w-2xl">
                 Sed ut maecenas dolor leo. Enim sit quis tincidunt blandit. Quis
                 nunc tellus orci ultricies scelerisque tempor hac.
               </p>
               <NavLink href={routes.bookNow}>
-                <PrimaryButton className="uppercase">Book Now</PrimaryButton>
+                <PrimaryButton
+                  className="block w-full md:w-auto md:inline-block "
+                  innerClassName="uppercase text-[16px] px-14"
+                >
+                  Book Now
+                </PrimaryButton>
               </NavLink>
             </div>
           </div>

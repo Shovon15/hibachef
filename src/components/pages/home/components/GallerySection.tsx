@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
@@ -20,6 +20,8 @@ import PAGES from "@/dummyData";
 import { SwiperOptions } from "swiper/types";
 import { HighlightHeading } from "@/components/common/typography/HighlightHeading";
 import PrimaryButton from "@/components/common/button/PrimaryButton";
+import { useIsMobile } from "@/hooks/useMobile";
+import routes from "@/config/routes";
 
 type Props = { data?: any };
 
@@ -45,7 +47,23 @@ type SliderProps = {
 
 const GallerySlider = ({ data, autoplay = false }: SliderProps) => {
   const swiperRef = useRef<any>(null);
-  const [stretch, setStretch] = useState(-100);
+  const [stretch, setStretch] = useState(200);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const newStretch = window.innerWidth >= 768 ? -50 : 200;
+      setStretch(newStretch);
+
+      if (swiperRef.current && swiperRef.current.params) {
+        swiperRef.current.params.coverflowEffect.stretch = newStretch;
+        swiperRef.current.update(); // <- important
+      }
+    };
+
+    handleResize(); // run once on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const getSwiperConfig = (
     stretch: number,
@@ -149,7 +167,13 @@ const GallerySlider = ({ data, autoplay = false }: SliderProps) => {
           </button>
         </div> */}
       </div>
-      <PrimaryButton>Go to gallery</PrimaryButton>
+      <div className="pt-5 px-5">
+        <NavLink href={routes.gallery}>
+          <PrimaryButton className="block lg:inline-block">
+            Go to gallery
+          </PrimaryButton>
+        </NavLink>
+      </div>
       {/* <div className="my-swiper-pagination  !mt-10 !relative !bottom-0 !text-center" /> */}
     </div>
   );

@@ -17,9 +17,32 @@ import SocialSection from "@/components/sections/SocialSection";
 import { useAppSelector } from "@/store/hooks";
 
 const BottomSection = () => {
-  const { footer, settings, socialLinks } = useAppSelector(
-    (state) => state.navigation,
-  );
+  // const { footer, settings, socialLinks } = useAppSelector(
+  //   (state) => state.navigation,
+  // );
+
+  const socialLinksDummyData: ISocialLinksSection = {
+    name: "Social Links",
+    slug: "social_Links",
+    items: [
+      {
+        name: "Facebook",
+        url: "https://facebook.com",
+      },
+      {
+        name: "Instagram",
+        url: "https://instagram.com",
+      },
+      {
+        name: "Google",
+        url: "https://google.com",
+      },
+      {
+        name: "YouTube",
+        url: "https://youtube.com",
+      },
+    ],
+  };
   const iconMap: Record<string, React.ElementType> = {
     facebook: FacebookIcon,
     x: XIcon,
@@ -47,9 +70,11 @@ const BottomSection = () => {
 
   return (
     <div className="">
-      <div className=" bg-primary text-center text-white py-5">
-        <p>We ready to have you the best Hibachef experiences</p>
-        {/* <SocialSection socialLinks={socialLinks} className="!flex-col" /> */}
+      <div className="flex lg:flex-row flex-col justify-around items-center bg-primary text-center gap-5 text-white py-5">
+        <p className="font-cooperBlack font-[400] text-[16px] leading-[100%]">
+          We ready to have you the best Hibachef experiences
+        </p>
+        <SocialSection socialLinks={socialLinksDummyData} className="flex" />
       </div>
 
       <div className="bg-black text-center text-white py-5">

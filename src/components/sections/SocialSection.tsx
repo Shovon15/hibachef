@@ -1,6 +1,7 @@
 import React from "react";
 import {
   FacebookIcon,
+  GoogleIcon,
   InstagramIcon,
   LinkedinIcon,
   PinterestIcon,
@@ -25,12 +26,13 @@ const SocialSection = ({
     linkedin: LinkedinIcon,
     whatsapp: WhatsAppIcon,
     pinterest: PinterestIcon,
+    google: GoogleIcon,
   };
 
   return (
     <div
       className={cn(
-        `flex flex-col md:flex-row gap-2 lg:gap-6 py-[8%] lg:py-[3%]`,
+        `flex flex-row justify-center items-center gap-2 lg:gap-6`,
         className,
       )}
     >
@@ -47,7 +49,7 @@ const SocialSection = ({
             className="flex items-center justify-center w-8 h-8 hover:opacity-90 transition"
           >
             {IconComp ? (
-              <IconComp className="h-5 w-5 text-white" />
+              <IconComp className="h-[30px] w-[30px] text-white" />
             ) : (
               <span className="text-white text-xs">
                 {item.name.slice(0, 1)}
