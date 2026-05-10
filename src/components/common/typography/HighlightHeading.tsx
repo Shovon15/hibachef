@@ -46,7 +46,10 @@ export const HighlightHeading = ({
   };
 
   return (
-    <HeadingOne className={cn(`font-cooperBlack`, className)} {...props}>
+    <HeadingOne
+      className={cn(`font-cooperBlack leading-[110%]`, className)}
+      {...props}
+    >
       {renderText()}
     </HeadingOne>
   );
