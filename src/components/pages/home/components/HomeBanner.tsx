@@ -26,14 +26,14 @@ const HomeBanner = ({ data }: Props) => {
       )}
       <div className="absolute inset-0 z-10 bg-[linear-gradient(to_right,#161616,#1B1B1B,#333333CC,#24242400,#16161600)]" />
 
-      <div className="relative w-full h-[588px] overflow-hidden lg:h-full">
+      <div className="relative w-full h-[658px] overflow-hidden lg:h-full">
         <ImageComponent
           src={bannerImage}
           alt="banner"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full lg:min-h-[560px] object-cover object-center"
         />
 
-        <div className="absolute top-[20%] md:inset-0 flex gap-5 items-center z-30">
+        <div className="absolute top-[25%]  md:inset-0 flex gap-5 items-center z-30">
           <div className="w-full px-[5.13vw] md:px-[8.599vw]">
             <div className="md:max-w-4xl text-white space-y-10">
               <HighlightHeading

@@ -22,45 +22,53 @@ const HeaderComponent = () => {
 
   return (
     <ContentContainer
-      className={`fixed top-7.5 w-full z-40 flex items-center transition-all duration-300 ease-in-out h-[60px] lg:h-auto lg:px-[0vw]
-         2xl:px-[10.67vw]`}
+      className={`fixed top-7.5 w-full h-[clamp(60px,8vw,100px)] z-40 px-[5.333vw] lg:px-[0vw] 2xl:px-[10.67vw] flex items-center transition-all duration-300 ease-in-out`}
     >
-      <header className="w-[92vw] mx-auto flex items-center justify-between h-full pl-2 pr-4 py-2 bg-[#ffffff]  rounded-full z-[9999]">
-        <div className="flex items-center gap-3">
+      <header className="w-[92vw] mx-auto flex items-center justify-between h-full px-2 py-[10px] bg-[#ffffff] rounded-full z-[9999]">
+        {/* left */}
+        <div className="flex items-center gap-3 h-full w-[32%] lg:w-[7%] shrink-0">
           <div className="flex items-center gap-4 md:pl-5 lg:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="focus:outline-none focus:ring-0  size-[34px]"
+              className="focus:outline-none focus:ring-0 size-[34px]"
             >
               <Hamburger isOpen={isMobileMenuOpen} />
             </button>
           </div>
-          <Logo className="size-[50px] lg:size-[60px] xl:size-[84px]" />
+
+          <div className="h-full flex items-center">
+            <Logo className="h-full w-auto max-h-[100px]" />
+          </div>
         </div>
 
-        <div className="h-full justify-center items-center hidden lg:flex">
-          {/* {header && header?.items?.length > 0 && (
-            <NavItems navItems={header.items} />
-          )} */}
+        {/* middle */}
+        <div className="hidden lg:flex h-full w-[74%] items-center justify-center px-2 overflow-hidden">
           {PAGES.header && PAGES.header?.items?.length > 0 && (
             <NavItems navItems={PAGES.header.items} />
           )}
         </div>
 
-        <div className=" flex justify-center items-center gap-2 xl:gap-5">
-          <NavLink href={routes.bookNow}>
-            <PrimaryButton className=" !text-nowrap">Book Now</PrimaryButton>
+        {/* right */}
+        <div
+          className="flex justify-end items-center gap-2 xl:gap-5 h-full w-[68%] lg:w-[19%] shrink-0 lg:py-[0.781vw]
+         2xl:py-[clamp(8px,0.8vw,10px)]"
+        >
+          <NavLink href={routes.bookNow} className="h-full">
+            <PrimaryButton
+              className="h-full"
+              innerClassName="uppercase whitespace-nowrap !text-[clamp(14px,0.95vw,16px)]"
+            >
+              Book Now
+            </PrimaryButton>
           </NavLink>
-          <NavLink href={routes.contact}>
-            <IconButton icon={<PhoneIcon />} className="!p-2.5 xl:!p-[14px]" />
+
+          <NavLink href={routes.contact} className="h-full shrink-0">
+            <IconButton
+              icon={<PhoneIcon className="md:size-[22px] lg:size-[24px]" />}
+              className="h-full aspect-square !p-0"
+            />
           </NavLink>
         </div>
-
-        {/* <MobileMenu
-          isOpen={isMobileMenuOpen}
-          navItems={header?.items}
-          onClose={() => setIsMobileMenuOpen(false)}
-        /> */}
       </header>
       <MobileMenu
         isOpen={isMobileMenuOpen}

@@ -48,10 +48,14 @@ const NavItems = ({ navItems }: Props) => {
             <NavLink
               href={linkPath}
               className={cn(
-                "relative z-20 px-2.5 py-0.5 2xl:px-5 xl:py-2  flex items-center justify-center cursor-pointer font-graphikTrial text-sm transition-nav duration-200 ease-smooth whitespace-nowrap group leading-[22px] text-[clamp(13px,1.042vw,20px)] uppercase rounded-full font-graphikTrial ",
+                "relative z-20 flex items-center justify-center cursor-pointer",
+                "font-graphikTrial transition-nav duration-200 ease-smooth",
+                "whitespace-nowrap group leading-[22px] uppercase rounded-full",
+                "text-[clamp(13px,1.302vw,20px)] xl:text-[clamp(13px,1.102vw,20px)]",
+                "px-[clamp(8px,0.9vw,18px)] py-[clamp(2px,0.42vw,8px)]  font-medium",
                 isActive
-                  ? "text-primary font-bold bg-[#F5F5F5] " // Active style
-                  : "text-foreground hover:!text-[#e4002b] font-medium hover:bg-[#F5F5F5]", // Hover style
+                  ? "text-primary bg-[#F5F5F5]"
+                  : "text-foreground hover:!text-[#e4002b] hover:bg-[#F5F5F5]",
               )}
             >
               {item.title}

@@ -7,18 +7,21 @@ type Props = BaseButtonProps & {
   innerClassName?: string;
 };
 
-const PrimaryButton = ({ className, innerClassName, ...props }: Props) => {
+const PrimaryButton = ({
+  className = "max-h-[60px]",
+  innerClassName,
+  ...props
+}: Props) => {
   return (
-    <div className={cn("inline-block p-[1px]", className)}>
+    <div className={cn("inline-flex h-full p-[1px]", className)}>
       <ButtonComponent
         {...props}
         className={cn(
           "bg-primary text-white capitalize rounded-full",
-          "w-full",
-          "px-6 xl:px-10",
-          "py-[2.71vw] md:py-[1.2vw] lg:py-[8px] xl:py-[10px]",
+          "w-full h-full",
+          "px-4 py-3 md:px-5 xl:px-8",
           "text-[3.5vw] md:text-[1.5vw] lg:text-[0.99vw]",
-          "transition font-dmSans",
+          "transition font-graphikTrial flex items-center justify-center",
           innerClassName,
         )}
       />

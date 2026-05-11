@@ -16,15 +16,15 @@ const IconButton = ({
   ...props
 }: Props) => {
   return (
-    <div className="inline-block p-[1px]">
+    <div className="inline-flex h-full p-[1px]">
       <ButtonComponent
         {...props}
         className={cn(
           "flex items-center justify-center gap-2",
           "bg-primary text-white capitalize rounded-full",
-          "p-[2.71vw] lg:p-3.5",
+          "h-full aspect-square",
           "text-[3.5vw] md:text-[1.5vw] lg:text-[0.99vw]",
-          "transition  font-dmSans",
+          "transition font-dmSans",
           className,
         )}
       >
