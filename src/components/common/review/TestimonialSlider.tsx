@@ -54,7 +54,7 @@ const reviews = [
 export default function TestimonialSlider() {
   return (
     <div className=" py-9">
-      <div className="relative">
+      <div className="relative custom-pagination">
         <Swiper
           modules={[Navigation, EffectCoverflow, Pagination]}
           effect="coverflow"
