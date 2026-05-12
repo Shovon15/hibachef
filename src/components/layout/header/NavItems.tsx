@@ -50,12 +50,12 @@ const NavItems = ({ navItems }: Props) => {
               className={cn(
                 "relative z-20 flex items-center justify-center cursor-pointer",
                 "font-graphikTrial transition-nav duration-200 ease-smooth",
-                "whitespace-nowrap group leading-[22px] uppercase rounded-full",
+                "whitespace-nowrap group leading-[22px]  rounded-full",
                 "text-[clamp(13px,1.302vw,20px)] xl:text-[clamp(13px,1.102vw,20px)]",
-                "px-[clamp(8px,0.9vw,18px)] py-[clamp(2px,0.42vw,8px)]  font-medium",
+                "px-[clamp(8px,0.9vw,18px)] py-[clamp(2px,0.42vw,8px)]  ",
                 isActive
-                  ? "text-primary bg-[#F5F5F5]"
-                  : "text-foreground hover:!text-[#e4002b] hover:bg-[#F5F5F5]",
+                  ? "text-primary bg-[#F5F5F5] font-bold"
+                  : "text-foreground hover:!text-[#e4002b] hover:bg-[#F5F5F5] font-medium",
               )}
             >
               {item.title}
