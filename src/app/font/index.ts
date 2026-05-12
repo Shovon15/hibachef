@@ -11,6 +11,7 @@ export const GraphikTrial = localFont({
     { path: "./Graphik-Regular-Trial.otf", weight: "400", style: "normal" },
     { path: "./Graphik-Medium-Trial.otf", weight: "500", style: "normal" },
     { path: "./Graphik-Semibold-Trial.otf", weight: "600", style: "normal" },
+    { path: "./Graphik-Bold-Trial.otf", weight: "700", style: "normal" },
   ],
   variable: "--font-graphikTrial",
   display: "swap",
