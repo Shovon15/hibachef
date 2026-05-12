@@ -8,6 +8,7 @@ import PrimaryButton from "@/components/common/button/PrimaryButton";
 import NavLink from "@/components/common/link/NavLink";
 import routes from "@/config/routes";
 import { useIsMobile } from "@/hooks/useMobile";
+// import HomeBannerVideo from "@/assets/videos/home-banner-video.mp4";
 
 type Props = {
   data?: any;
@@ -17,6 +18,20 @@ const HomeBanner = ({ data }: Props) => {
   const { isMobile, isMounted } = useIsMobile();
   const backgroundShape = isMobile ? bannerBgMobile : bannerBg;
 
+  const videoUrl = "/home-banner-video.mp4";
+  // return (
+  //   <div className="w-full h-full">
+  //     <video
+  //       autoPlay
+  //       muted
+  //       loop
+  //       playsInline
+  //       className="w-full h-full lg:min-h-[560px] object-cover object-center"
+  //     >
+  //       <source src={videoUrl} type="video/mp4" />
+  //     </video>
+  //   </div>
+  // );
   return (
     <div className="relative ">
       {isMounted && (
@@ -26,12 +41,24 @@ const HomeBanner = ({ data }: Props) => {
       )}
       <div className="absolute inset-0 z-10 bg-[linear-gradient(to_right,#161616,#1B1B1B,#333333CC,#24242400,#16161600)]" />
 
-      <div className="relative w-full h-[658px] overflow-hidden lg:h-full">
-        <ImageComponent
+      <div className="relative w-full h-[clamp(658px,42.656vw,819px)] overflow-hidden">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full lg:min-h-[560px] object-cover object-center"
+        >
+          <source src={videoUrl} type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-black/20" />
+
+        {/* <ImageComponent
           src={bannerImage}
           alt="banner"
           className="w-full h-full lg:min-h-[560px] object-cover object-center"
-        />
+        /> */}
 
         <div className="absolute top-[25%]  md:inset-0 flex gap-5 items-center z-30">
           <div className="w-full px-[5.13vw] md:px-[8.599vw]">

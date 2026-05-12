@@ -189,3 +189,7 @@ body {
   width: 60px;
   border-radius: 9999px;
 }
+
+.gallery-slider .swiper-wrapper {
+  transition-timing-function: linear !important;
+}

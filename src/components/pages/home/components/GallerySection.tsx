@@ -33,7 +33,7 @@ const GallerySection = ({ data }: Props) => {
         // highlight={["Menu"]}
         highlightClassName="text-primary text-center"
       />
-      <GallerySlider data={PAGES.galleryData.items} />
+      <GallerySlider autoplay={true} data={PAGES.galleryData.items} />
     </div>
   );
 };
@@ -77,11 +77,11 @@ const GallerySlider = ({ data, autoplay = false }: SliderProps) => {
     slidesPerView: "auto",
     loop: true,
     loopPreventsSliding: false,
-    speed: 600,
+    speed: 5000,
 
     autoplay: autoplay
       ? {
-          delay: 5000,
+          delay: 1,
           disableOnInteraction: false,
           pauseOnMouseEnter: true,
         }
@@ -120,7 +120,7 @@ const GallerySlider = ({ data, autoplay = false }: SliderProps) => {
             swiper.params.coverflowEffect.stretch = stretch;
           }}
           {...getSwiperConfig(stretch, autoplay)}
-          className=""
+          className="gallery-slider"
         >
           {data.map((product: ISliderCard, index: number) => (
             <SwiperSlide
