@@ -10,8 +10,7 @@ type FormDataType = {
   mignonProtein: number;
   lobsterProtein: number;
   garlicNoodle: number;
-  location: string;
-  miles: number;
+  zipCode: string;
 };
 
 const ENTREE_OPTIONS = [
@@ -29,33 +28,32 @@ const EventDetails = () => {
     mignonProtein: 0,
     lobsterProtein: 0,
     garlicNoodle: 0,
-    location: ENTREE_OPTIONS[0],
-    miles: 0,
+    zipCode: "",
   });
   return (
-    <div>
+    <div className="py-10 lg:py-20">
       <MainTitle
         text1="Event"
         text2="Details"
         spanColor="text-[#000000]"
         textColor="text-[#E4002B]"
       />
-      <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 mt-10 lg:mt-16">
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 mt-10 lg:mt-16 justify-center items-center">
         <div className="flex-1  lg:py-10 ">
           <EstimateForm formData={formData} setFormData={setFormData}  ENTREE_OPTIONS={ENTREE_OPTIONS}/>
-          <div className=" mt-12 hidden lg:block">
+          {/* <div className=" mt-12 hidden lg:block">
             <p className=" font-graphikTrial text-base font-normal text-[#151515]">
               Click Estimate after filling all details to get an estimation.
             </p>
             <button className=" py-5 px-20 font-graphikTrial text-base font-medium text-[#FFFFFF] bg-[#EE1F26] rounded-full mt-4">
               Estimate
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="relative flex-1">
           {/* Background Image as div */}
           <div
-            className="relative z-20 w-[calc(100%-20px)] lg:w-full ml-auto bg-cover bg-center bg-no-repeat h-full flex flex-col justify-center items-center p-11"
+            className="relative z-20 w-[calc(100%-20px)] lg:w-full ml-auto bg-cover bg-center bg-no-repeat h-full flex flex-col justify-center items-center px-6 lg:px-11 py-12 lg:py-32 xl:py-44"
             style={{ backgroundImage: `url(${EstimatedPriceBg.src})` }}
           >
             <h5 className="font-cooperBlack text-[clamp(1.25rem,1.875vw,2.25rem)] font-normal text-[#FFFFFF]">
@@ -76,14 +74,14 @@ const EventDetails = () => {
           {/* Red Side Bar */}
           <div className="absolute top-0 bottom-0 my-auto left-0 lg:-left-8 w-24 h-[calc(100%-40px)] bg-[#E4002B]"></div>
         </div>
-         <div className=" mt-2 block lg:hidden">
+         {/* <div className=" mt-2 block lg:hidden">
             <p className=" font-graphikTrial text-base font-normal text-[#151515]">
               Click Estimate after filling all details to get an estimation.
             </p>
             <button className=" py-4 lg:py-5 px-20 font-graphikTrial text-sm lg:text-base font-medium text-[#FFFFFF] bg-[#EE1F26] rounded-full mt-4 w-full">
               Estimate
             </button>
-          </div>
+          </div> */}
       </div>
     </div>
   );

@@ -65,19 +65,19 @@ const EstimateForm = ({ formData, setFormData, ENTREE_OPTIONS }: any) => {
         className=" "
         islabelActive={true}
       />
-      <Dropdown
+      {/* <Dropdown
         label="Which one of our locations is closest to your event? (contact us for NY/NJ)"
         options={ENTREE_OPTIONS}
         placeholder=""
         value={formData.location}
         onChange={(value) => handleDropdownChange("location", value)}
         islabelActive={true}
-      />
+      /> */}
       <InputComponent
-        label="How far (in miles) is your event from the zip-code you picked above?"
-        name="miles"
-        type="number"
-        value={formData.miles}
+        label="Zip code of your location?"
+        name="zipCode"
+        type="text"
+        value={formData.zipCode}
         onChange={handleChange}
         className=" "
         islabelActive={true}

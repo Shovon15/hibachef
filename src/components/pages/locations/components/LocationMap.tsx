@@ -54,12 +54,12 @@ const LocationMap = ({ data }: Props) => {
 
   return (
     <div className="py-10 lg:py-20">
-      <HighlightHeading
+      {/* <HighlightHeading
         text={`Select your Location to book your Hibachef`}
         highlight={["Hibachef"]}
         highlightClassName="text-primary"
         className="text-center max-w-[90%] lg:max-w-[50%] mx-auto"
-      />
+      /> */}
 
       <div className="flex flex-col lg:flex-row lg:gap-20 px-[4vw]">
         {/* ↓ attach containerRef here */}

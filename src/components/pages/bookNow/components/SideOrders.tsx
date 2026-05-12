@@ -48,12 +48,15 @@ const SideOrders = ({ setCurrentStep }: Props) => {
   };
 
   const handlePrevious = () => {
-
     setCurrentStep(3);
   };
   return (
     <div className="lg:pl-20">
       <MainTitle text1="Choose" text2=" Side Orders" />
+      <p className="text-sm lg:text-base text-[#3D3D3D] font-normal font-graphikTrial text-center mt-4">
+        All Hibachi packages come with salad, egg fried rice, and mixed
+        vegetables. You can order extra sides from the side order section.
+      </p>
       <div className="w-full rounded-4xl bg-[#F2F2F2] p-6.5 mt-9 lg:mt-12">
         <div className="grid gap-x-7 gap-y-6 grid-cols-1 md:grid-cols-3">
           <div>

@@ -4,17 +4,14 @@ import locationImage from "@/assets/images/location-img.png";
 import ImageComponent from "@/components/common/image";
 import PrimaryButton from "@/components/common/button/PrimaryButton";
 import LocationMap from "../../locations/components/LocationMap";
+import MainTitle from "@/components/common/Titles/MainTitle";
 
 type Props = { data?: any };
 
 const LocationSection = ({ data }: Props) => {
   return (
-    <div className="">
-      {/* <HighlightHeading
-        text="Select your Location to book your Hibachef"
-        highlight={["Hibachef"]}
-        highlightClassName="text-primary"
-      /> */}
+    <div className="py-20">
+      <MainTitle text1="Select Your Location To Book Your" text2=" Hibachef" className="text-center max-w-[926px] mx-auto" />
       <LocationMap />
 
       {/* <div className="py-10 flex justify-center items-center gap-10">

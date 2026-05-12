@@ -71,7 +71,7 @@ const DateSlot = ({
 
       <div className="flex flex-col lg:flex-row bg-[#F2F2F2] p-6 mt-4 lg:mt-12 rounded-xl gap-4 lg:gap-0 ">
         {/* Calendar */}
-        <div className="flex-1 pb-2 lg:pr-6 border-b lg:border-r border-dashed border-[#DCDCDC]">
+        <div className="flex-1 pb-2 lg:pr-6 border-b lg:border-b-0 lg:border-r border-dashed border-[#DCDCDC]">
           <div className="">
             <div className="flex items-center justify-between mb-4">
               <button

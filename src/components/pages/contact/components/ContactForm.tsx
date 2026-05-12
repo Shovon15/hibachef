@@ -67,14 +67,15 @@ const ContactForm = () => {
         </div>
         <div>
           <p className="font-graphikTrial font-semibold text-base text-white hidden lg:block">Start a conversation with us by filling out the form</p>
-          <div className="grid gap-x-14 gap-y-8 lg:gap-y-6 grid-cols-1 lg:grid-cols-2 lg:mt-6">
+          <div className="flex flex-col gap-x-14 gap-y-8 lg:gap-y-6  lg:mt-6">
             <InputComponent
-              label="Name *"
+              label="Name"
               name="firstName"
               type="text"
               value={formData.firstName}
               onChange={handleChange}
               className=""
+              required
               inputTextColor="text-white"
             />
 
@@ -114,6 +115,7 @@ const ContactForm = () => {
               label="ZIP Code"
               name="zipCode"
               type="text"
+              required
               value={formData.zipCode}
               onChange={handleChange}
               inputTextColor="text-white"
