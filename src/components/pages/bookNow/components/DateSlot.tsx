@@ -69,7 +69,7 @@ const DateSlot = ({
     <div className="lg:pl-20">
       <MainTitle text1="Pick Your" text2="Date & Slot" />
 
-      <div className="flex flex-col lg:flex-row bg-[#F2F2F2] p-6 mt-4 lg:mt-0 rounded-xl gap-4 lg:gap-0">
+      <div className="flex flex-col lg:flex-row bg-[#F2F2F2] p-6 mt-4 lg:mt-12 rounded-xl gap-4 lg:gap-0 ">
         {/* Calendar */}
         <div className="flex-1 pb-2 lg:pr-6 border-b lg:border-r border-dashed border-[#DCDCDC]">
           <div className="">
