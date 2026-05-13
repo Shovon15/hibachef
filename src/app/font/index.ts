@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 
 export const CooperBlack = localFont({
-  src: [{ path: "./Coopbl.otf", weight: "400", style: "normal" }],
+  src: [{ path: "./Coopbl_ttf.ttf", weight: "400", style: "normal" }],
   variable: "--font-cooperBlack",
   display: "swap",
 });
