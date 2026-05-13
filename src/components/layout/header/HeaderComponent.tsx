@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ContentContainer from "../container/contentContainer";
 import Logo from "@/components/common/logo/Logo";
 import Hamburger from "./hamburger/Hamburger";
@@ -20,11 +20,36 @@ const HeaderComponent = () => {
 
   // const { header } = useAppSelector((state) => state.navigation);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <ContentContainer
       className={`fixed top-7.5 w-full h-[clamp(60px,8vw,100px)] z-40 px-[5.333vw] lg:px-[0vw] 2xl:px-[10.67vw] flex items-center transition-all duration-300 ease-in-out`}
     >
-      <header className="w-[92vw] mx-auto flex items-center justify-between h-full px-2 py-[10px] bg-[#ffffff] rounded-full z-[9999]">
+      <header
+        className={`
+        w-[92vw] mx-auto flex items-center justify-between h-full 
+        px-2 py-[10px] bg-[#ffffff] rounded-full z-[9999]
+        transition-all duration-500 ease-in-out
+        ${
+          scrolled
+            ? "shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-md"
+            : "shadow-none"
+        }
+      `}
+      >
         {/* left */}
         <div className="flex items-center gap-3 h-full w-[32%] lg:w-[7%] shrink-0">
           <div className="flex items-center gap-4 md:pl-5 lg:hidden">

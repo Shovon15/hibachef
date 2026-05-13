@@ -33,7 +33,7 @@ const HomeBanner = ({ data }: Props) => {
   //   </div>
   // );
   return (
-    <div className="relative ">
+    <div className="relative min-h-screen">
       {isMounted && (
         <div className="absolute bottom-0 z-20">
           <ImageComponent src={backgroundShape} alt="banner-background" />
@@ -41,7 +41,7 @@ const HomeBanner = ({ data }: Props) => {
       )}
       <div className="absolute inset-0 z-10 bg-[linear-gradient(to_right,#161616,#1B1B1B,#333333CC,#24242400,#16161600)]" />
 
-      <div className="relative w-full h-[clamp(658px,42.656vw,819px)] overflow-hidden">
+      <div className="relative w-full h-screen overflow-hidden">
         <video
           autoPlay
           muted
@@ -60,14 +60,14 @@ const HomeBanner = ({ data }: Props) => {
           className="w-full h-full lg:min-h-[560px] object-cover object-center"
         /> */}
 
-        <div className="absolute top-[25%]  md:inset-0 flex gap-5 items-center z-30">
+        <div className="absolute top-0 h-full  md:inset-0 flex gap-5 items-center z-30 pt-[5%]">
           <div className="w-full px-[5.13vw] md:px-[8.599vw]">
             <div className="md:max-w-4xl text-white space-y-10">
               <HighlightHeading
                 text="we bring Hibachef to your backyard"
                 highlight={["Hibachef"]}
                 highlightClassName="text-primary"
-                className="capitalize w-[88%] md:w-auto"
+                className="capitalize w-[88%] md:w-auto "
               />
               <p className="max-w-2xl">
                 Sed ut maecenas dolor leo. Enim sit quis tincidunt blandit. Quis

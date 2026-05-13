@@ -15,7 +15,7 @@ export const headerData = {
     //   slug: "party-estimator",
     // },
     {
-      title: "FAQ",
+      title: "FAQ ",
       slug: "faq",
     },
     {
