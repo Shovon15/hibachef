@@ -8,6 +8,7 @@ const routes = {
   gallery: "/gallery",
   contact: "/contact",
   bookNow: "/book-now",
+  partyEstimator: "/party-estimator",
 };
 
 export default routes;

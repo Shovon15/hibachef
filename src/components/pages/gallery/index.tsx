@@ -11,6 +11,7 @@ import FeaturedVideos from "./components/FeaturedVideos";
 import PageBanner from "@/components/layout/container/PageBanner";
 import BlogBannerBg from "@/assets/images/blog-bg.png";
 import ContentContainer from "@/components/layout/container/contentContainer";
+import FeaturedGallerySection from "./components/FeaturedGallerySection";
 
 type Props = { data?: any };
 export interface GalleryItem {
@@ -74,8 +75,11 @@ const GalleryPage = (props: Props) => {
       />
       <ContentContainer>
         <FeaturedVideos />
+      </ContentContainer>
 
-        <div className="my-20">
+      <FeaturedGallerySection data={galleryData} />
+
+      {/* <div className="my-20">
           <HighlightHeading
             text="Full Gallery"
             highlight={["Gallery"]}
@@ -83,8 +87,7 @@ const GalleryPage = (props: Props) => {
             className="text-center mb-14"
           />
           <GalleryGridSection data={galleryData} />
-        </div>
-      </ContentContainer>
+        </div> */}
     </div>
   );
 };
