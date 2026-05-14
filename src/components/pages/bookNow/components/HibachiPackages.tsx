@@ -20,8 +20,9 @@ type FormDataType = {
 };
 type Props = {
   setCurrentStep: (step: number) => void;
+  handleStepChange: (stepId: number) => void;
 };
-const HibachiPackages = ({ setCurrentStep }: Props) => {
+const HibachiPackages = ({ setCurrentStep, handleStepChange }: Props) => {
   const [formData, setFormData] = useState<FormDataType>({
     regularGuest: "",
     specialGuest: "",
@@ -36,14 +37,10 @@ const HibachiPackages = ({ setCurrentStep }: Props) => {
   };
 
   const handleProceed = () => {
-
-    setCurrentStep(4);
+    handleStepChange(4);
   };
 
-  const handlePrevious = () => {
-  
-    setCurrentStep(2);
-  };
+
 
   return (
     <div className="lg:pl-20">
@@ -135,7 +132,7 @@ const HibachiPackages = ({ setCurrentStep }: Props) => {
         <div className="flex flex-col gap-4 sm:flex-row sm:gap-6 mt-10">
           <ButtonComponent
             text="PREVIOUS STEP"
-            onClick={handlePrevious}
+            onClick={() => handleStepChange(2)}
             className="flex-1"
             isbgRed={false}
           />

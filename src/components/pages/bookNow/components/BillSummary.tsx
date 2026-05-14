@@ -14,10 +14,18 @@ const BillSummary = ({currentStep}:any) => {
             <span>Tax</span>
             <span>$72.27</span>
           </p>
+          <p className=" font-graphikTrial font-normal text-sm lg:text-base text-[#000000] flex justify-between items-center">
+            <span>Tables</span>
+            <span>$105.00</span>
+          </p>
+          <p className=" font-graphikTrial font-normal text-sm lg:text-base text-[#000000] flex justify-between items-center">
+            <span>Tip</span>
+            <span>$160.00</span>
+          </p>
           <hr className="border-t border-[#DCDCDC] border-dashed" />
           <p className=" font-graphikTrial font-medium text-sm lg:text-base text-[#000000] flex justify-between items-center">
             <span>Total</span>
-            <span className="text-[#E4002B]">$875.27</span>
+            <span className="text-[#E4002B]">$1185.87</span>
           </p>
         </div>
       )}
