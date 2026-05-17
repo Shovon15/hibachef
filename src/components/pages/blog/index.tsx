@@ -17,8 +17,8 @@ const BlogPage = (props: Props) => {
     <div>
       <PageBanner
         bgImage={BlogBannerBg}
-        title=""
-        title2="Blog"
+        title="Blog"
+        highlighted={["Blog"]}
         description="Hibachi Chef at Home brings the essence of Japanese cuisine right to your doorstep. Discover our menu, crafted with the finest ingredients to deliver authentic hibachi flavors and aromas. From sizzling meats and fresh seafood to vibrant hibachi vegetables and fried rice, our offerings are designed to impress. Explore our pricing options to find the perfect package for your next event."
       />
       <ContentContainer className="py-11 lg:py-26">

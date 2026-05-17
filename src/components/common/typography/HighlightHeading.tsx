@@ -1,6 +1,12 @@
 "use client";
 
-import { ReactNode, useLayoutEffect, useRef, useState } from "react";
+import {
+  ReactNode,
+  useLayoutEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -18,6 +24,8 @@ type HighlightHeadingProps = {
   [key: string]: any;
 };
 
+const emptySubscribe = () => () => {};
+
 export const HighlightHeading = ({
   text,
   highlight,
@@ -27,11 +35,12 @@ export const HighlightHeading = ({
   ...props
 }: HighlightHeadingProps) => {
   const headingRef = useRef<HTMLHeadingElement | null>(null);
-  const [mounted, setMounted] = useState(false);
 
-  useLayoutEffect(() => {
-    setMounted(true);
-  }, []);
+  const isMounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
 
   const highlights = Array.isArray(highlight) ? highlight : [highlight];
 
@@ -65,7 +74,7 @@ export const HighlightHeading = ({
   };
 
   useLayoutEffect(() => {
-    if (!mounted || !text || !headingRef.current || !animate) return;
+    if (!isMounted || !text || !headingRef.current || !animate) return;
 
     const ctx = gsap.context(() => {
       const split = new SplitText(headingRef.current, {
@@ -101,7 +110,7 @@ export const HighlightHeading = ({
       ctx.revert();
       clearTimeout(timer);
     };
-  }, [mounted, text, highlight, animate]);
+  }, [isMounted, text, highlight, animate]);
 
   // Always return the structure so ScrollReveal can find it and SplitText can measure it.
   // The 'invisible' class on ScrollReveal will handle hiding it until GSAP is ready.

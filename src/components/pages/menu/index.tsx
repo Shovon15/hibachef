@@ -14,17 +14,17 @@ const MenuPage = (props: Props) => {
     <div>
       <PageBanner
         bgImage={BlogBannerBg}
-        title="Menu "
-        title2="& Pricing"
+        title="Menu & Pricing"
+        highlighted={["Menu"]}
         description="Hibachi Chef at Home brings the essence of Japanese cuisine right to your doorstep. Discover our menu, crafted with the finest ingredients to deliver authentic hibachi flavors and aromas. From sizzling meats and fresh seafood to vibrant hibachi vegetables and fried rice, our offerings are designed to impress. Explore our pricing options to find the perfect package for your next event."
         mainTextColor="text-[#EE1F26]"
         spanTextColor="text-white"
       />
       <PackageSection />
-      <PerfectCelebration/>
-      <MenuListSection reverse={true}/>
-      <MenuListSection  />
-      <MenuListSection reverse={true}/>
+      <PerfectCelebration />
+      {Array.from({ length: 3 }).map((_, index) => (
+        <MenuListSection key={index} reverse={index % 2 === 0} />
+      ))}
       <AdditionalInfoSection />
     </div>
   );

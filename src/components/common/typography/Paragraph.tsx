@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -22,17 +22,24 @@ const decodeHtmlEntities = (text: string) => {
   return txt.value;
 };
 
-const Paragraph = ({ content = "", className, animate = true, ...props }: Props) => {
+const emptySubscribe = () => () => {};
+
+const Paragraph = ({
+  content = "",
+  className,
+  animate = true,
+  ...props
+}: Props) => {
   const pRef = useRef<HTMLDivElement | null>(null);
 
-  const [mounted, setMounted] = useState(false);
+  const isMounted = useSyncExternalStore(
+    emptySubscribe,
+    () => true,
+    () => false,
+  );
 
   useLayoutEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useLayoutEffect(() => {
-    if (!animate || !pRef.current || !content || !mounted) return;
+    if (!animate || !pRef.current || !content || !isMounted) return;
 
     const ctx = gsap.context(() => {
       SplitText.create(pRef.current, {
@@ -57,7 +64,7 @@ const Paragraph = ({ content = "", className, animate = true, ...props }: Props)
     }, pRef);
 
     return () => ctx.revert();
-  }, [content, animate, mounted]);
+  }, [content, animate, isMounted]);
 
   if (!content) return null;
 

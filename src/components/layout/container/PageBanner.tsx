@@ -1,4 +1,6 @@
 import ImageComponent from "@/components/common/image";
+import { HighlightHeading } from "@/components/common/typography/HighlightHeading";
+import Paragraph from "@/components/common/typography/Paragraph";
 
 import ContentContainer from "@/components/layout/container/contentContainer";
 import { cn } from "@/utils/helpers/cn";
@@ -6,7 +8,7 @@ import { StaticImageData } from "next/image";
 type Props = {
   bgImage: string | StaticImageData;
   title?: string;
-  title2?: string;
+  highlighted?: string[];
   description: string;
   mainTextColor?: string;
   spanTextColor?: string;
@@ -15,7 +17,7 @@ type Props = {
 const PageBanner = ({
   bgImage,
   title = "",
-  title2 = "",
+  highlighted,
   description = "",
   mainTextColor = "text-white",
   spanTextColor = "text-[#EE2026]",
@@ -33,13 +35,25 @@ const PageBanner = ({
       {/* 🧊 Content on top */}
       <ContentContainer className="relative z-20 h-full flex flex-col justify-end py-24! lg:py-28!">
         <div className="">
-          <h1 className={`text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4.375rem)] font-normal font-cooperBlack ${mainTextColor}`}>
+          <HighlightHeading
+            text={title}
+            highlight={highlighted}
+            highlightClassName="text-primary"
+            className="leading-[100%] text-white"
+          />
+          {/* <h1
+            className={`text-[clamp(2.25rem,3.333vw,4rem)] leading-[clamp(2.5rem,3.333vw,4.375rem)] font-normal font-cooperBlack ${mainTextColor}`}
+          >
             {title} <span className={spanTextColor}>{title2}</span>
-          </h1>
+          </h1> */}
+          <Paragraph
+            className="lg:max-w-[75%] font-normal text-white text-sm lg:text-base leading-relaxed mt-4"
+            content={description}
+          />
 
-          <p className="lg:max-w-[75%] font-normal text-white text-sm lg:text-base leading-relaxed mt-4">
+          {/* <p className="lg:max-w-[75%] font-normal text-white text-sm lg:text-base leading-relaxed mt-4">
             {description}
-          </p>
+          </p> */}
         </div>
       </ContentContainer>
 

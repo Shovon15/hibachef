@@ -11,7 +11,13 @@ type Props = { data?: any };
 const LocationSection = ({ data }: Props) => {
   return (
     <div className="py-20">
-      <MainTitle text1="Select Your Location To Book Your" text2=" Hibachef" className="text-center max-w-[926px] mx-auto" />
+      <HighlightHeading
+        text="Select Your Location To Book Your Hibachef"
+        highlight={["Hibachef"]}
+        highlightClassName="text-primary"
+        className="lg:max-w-[85vw] xl:max-w-[60vw] 2xl:max-w-[50vw] mx-auto text-center leading-[100%]"
+      />
+      {/* <MainTitle text1="Select Your Location To Book Your" text2=" Hibachef" className="text-center max-w-[926px] mx-auto" /> */}
       <LocationMap />
 
       {/* <div className="py-10 flex justify-center items-center gap-10">

@@ -59,7 +59,6 @@ const BookNowIndexComponent = () => {
     setCurrentStep(stepId);
   };
 
- 
   const renderStep = () => {
     switch (currentStep) {
       case 1:
@@ -112,6 +111,7 @@ const BookNowIndexComponent = () => {
       <PageBanner
         bgImage={BookNowBg}
         title="Book Your Hibachef"
+        highlighted={["Hibachef"]}
         description="Hibachi Chef at Home brings the essence of Japanese cuisine right to your doorstep. Discover our menu, crafted with the finest ingredients to deliver authentic hibachi flavors and aromas. From sizzling meats and fresh seafood to vibrant hibachi vegetables and fried rice, our offerings are designed to impress. Explore our pricing options to find the perfect package for your next event."
       />
       <ContentContainer className="flex flex-col lg:flex-row pt-5 lg:pt-[70px] pb-16 lg:pb-[120px]">
