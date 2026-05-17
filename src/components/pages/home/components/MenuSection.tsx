@@ -1,16 +1,23 @@
+"use client";
 import { HighlightHeading } from "@/components/common/typography/HighlightHeading";
-import React from "react";
-import MenuCard from "./MenuCard";
 import ImageComponent from "@/components/common/image";
 import menuBg from "@/assets/images/menu-bg.jpg";
-import AnimatedBorderCard from "./AnimatedBorderCard";
 import Menu1 from "@/assets/images/menu-1.png";
 import Menu2 from "@/assets/images/menu-2.png";
 import ContentContainer from "@/components/layout/container/contentContainer";
+import { useLayoutEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Props = { data?: any };
 
 const MenuSection = ({ data }: Props) => {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const imageRefs = useRef<HTMLDivElement[]>([]);
+  const [mounted, setMounted] = useState(false);
+
   const dummyData = [
     {
       id: 1,
@@ -21,19 +28,58 @@ const MenuSection = ({ data }: Props) => {
       image: Menu2,
     },
   ];
+
+  useLayoutEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!mounted || !sectionRef.current || imageRefs.current.length === 0) {
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        imageRefs.current,
+        {
+          x: (index) => (index === 0 ? -120 : 120),
+          autoAlpha: 0,
+        },
+        {
+          x: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: "power3.out",
+          stagger: 0.15,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+            toggleActions: "play none none none",
+            once: true,
+          },
+        },
+      );
+
+      const timer = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, [mounted]);
+
+  if (!mounted) return null;
+
   return (
-    <div className="relative py-16  overflow-hidden">
-      {/* Background Image */}
+    <div ref={sectionRef} className="relative py-16 overflow-hidden">
       <ImageComponent
         src={menuBg}
         alt="background"
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Dark overlay (important for readability) */}
-      {/* <div className="absolute inset-0 bg-black/40" /> */}
-
-      {/* Content */}
       <ContentContainer className="relative z-10 flex flex-col gap-5 lg:gap-5 items-center justify-center h-full">
         <HighlightHeading
           text="Menu & Pricing"
@@ -41,10 +87,17 @@ const MenuSection = ({ data }: Props) => {
           highlightClassName="text-primary text-center"
           className="text-white"
         />
-        <div className="flex flex-col lg:flex-row gap-5 ">
+
+        <div className="flex flex-col lg:flex-row gap-10 overflow-hidden min-h-[60vh]">
           {dummyData.map((item, index) => {
             return (
-              <div key={index} className="w-full lg:w-1/2 ">
+              <div
+                key={item.id}
+                ref={(el) => {
+                  if (el) imageRefs.current[index] = el;
+                }}
+                className="w-full lg:w-1/2"
+              >
                 <ImageComponent
                   src={item.image}
                   alt="background"
@@ -53,15 +106,6 @@ const MenuSection = ({ data }: Props) => {
               </div>
             );
           })}
-
-          {/* <AnimatedBorderCard /> */}
-          {/* <AnimatedBorderCard className="w-[320px] h-[200px] p-6 bg-black/60">
-            <h1 className="text-white text-lg font-bold">Hello</h1>
-            <p className="text-white/70">This is glowing border</p>
-          </AnimatedBorderCard> */}
-
-          {/* <MenuCard />
-          <MenuCard /> */}
         </div>
       </ContentContainer>
     </div>

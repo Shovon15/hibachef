@@ -1,17 +1,18 @@
 "use client";
 
-import React, { useLayoutEffect, useRef } from "react";
-import { cn } from "@/utils/helpers/cn";
-import { gsap } from "gsap";
+import { useLayoutEffect, useRef, useState } from "react";
+import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import "./styles.css";
+import { cn } from "@/utils/helpers/cn";
 
 gsap.registerPlugin(SplitText, ScrollTrigger);
 
 type Props = {
   content?: string;
   className?: string;
+  animate?: boolean;
+  [key: string]: any;
 };
 
 const decodeHtmlEntities = (text: string) => {
@@ -21,11 +22,17 @@ const decodeHtmlEntities = (text: string) => {
   return txt.value;
 };
 
-const Paragraph = ({ content = "", className }: Props) => {
+const Paragraph = ({ content = "", className, animate = true, ...props }: Props) => {
   const pRef = useRef<HTMLDivElement | null>(null);
 
+  const [mounted, setMounted] = useState(false);
+
   useLayoutEffect(() => {
-    if (!pRef.current) return;
+    setMounted(true);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!animate || !pRef.current || !content || !mounted) return;
 
     const ctx = gsap.context(() => {
       SplitText.create(pRef.current, {
@@ -43,7 +50,6 @@ const Paragraph = ({ content = "", className }: Props) => {
               trigger: pRef.current,
               start: "top 90%",
               once: true,
-              // markers: true,
             },
           });
         },
@@ -51,7 +57,9 @@ const Paragraph = ({ content = "", className }: Props) => {
     }, pRef);
 
     return () => ctx.revert();
-  }, [content]);
+  }, [content, animate, mounted]);
+
+  if (!content) return null;
 
   return (
     <div
@@ -61,6 +69,7 @@ const Paragraph = ({ content = "", className }: Props) => {
         className,
       )}
       dangerouslySetInnerHTML={{ __html: decodeHtmlEntities(content) }}
+      {...props}
     />
   );
 };

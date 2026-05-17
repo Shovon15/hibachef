@@ -1,6 +1,5 @@
 "use client";
 import ImageComponent from "@/components/common/image";
-import bannerImage from "@/assets/images/banner-image.png";
 import bannerBg from "@/assets/images/banner-bg.png";
 import bannerBgMobile from "@/assets/images/banner-bg-mobile.png";
 import { HighlightHeading } from "@/components/common/typography/HighlightHeading";
@@ -8,7 +7,8 @@ import PrimaryButton from "@/components/common/button/PrimaryButton";
 import NavLink from "@/components/common/link/NavLink";
 import routes from "@/config/routes";
 import { useIsMobile } from "@/hooks/useMobile";
-// import HomeBannerVideo from "@/assets/videos/home-banner-video.mp4";
+import Paragraph from "@/components/common/typography/Paragraph";
+import ScrollReveal from "@/components/common/animations/ScrollReveal";
 
 type Props = {
   data?: any;
@@ -19,19 +19,7 @@ const HomeBanner = ({ data }: Props) => {
   const backgroundShape = isMobile ? bannerBgMobile : bannerBg;
 
   const videoUrl = "/home-banner-video.mp4";
-  // return (
-  //   <div className="w-full h-full">
-  //     <video
-  //       autoPlay
-  //       muted
-  //       loop
-  //       playsInline
-  //       className="w-full h-full lg:min-h-[560px] object-cover object-center"
-  //     >
-  //       <source src={videoUrl} type="video/mp4" />
-  //     </video>
-  //   </div>
-  // );
+
   return (
     <div className="relative min-h-screen">
       {isMounted && (
@@ -54,34 +42,36 @@ const HomeBanner = ({ data }: Props) => {
 
         <div className="absolute inset-0 bg-black/20" />
 
-        {/* <ImageComponent
-          src={bannerImage}
-          alt="banner"
-          className="w-full h-full lg:min-h-[560px] object-cover object-center"
-        /> */}
-
         <div className="absolute top-0 h-full  md:inset-0 flex gap-5 items-center z-30 pt-[5%]">
           <div className="w-full px-[5.13vw] md:px-[8.599vw]">
-            <div className="md:max-w-4xl text-white space-y-10">
+            <ScrollReveal className="md:max-w-4xl text-white space-y-10">
               <HighlightHeading
                 text="we bring Hibachef to your backyard"
                 highlight={["Hibachef"]}
                 highlightClassName="text-primary"
-                className="capitalize w-[88%] md:w-auto "
+                className="reveal-item capitalize w-[88%] md:w-auto leading-[120%]"
+                animate={false}
+                data-split="chars"
               />
-              <p className="max-w-2xl">
-                Sed ut maecenas dolor leo. Enim sit quis tincidunt blandit. Quis
-                nunc tellus orci ultricies scelerisque tempor hac.
-              </p>
-              <NavLink href={routes.bookNow}>
-                <PrimaryButton
-                  className="block w-full md:w-auto md:inline-block "
-                  innerClassName="uppercase text-[16px] px-14"
-                >
-                  Book Now
-                </PrimaryButton>
-              </NavLink>
-            </div>
+
+              <Paragraph
+                className="reveal-item max-w-2xl"
+                content={`Sed ut maecenas dolor leo. Enim sit quis tincidunt blandit. Quis
+                nunc tellus orci ultricies scelerisque tempor hac.`}
+                animate={false}
+                data-split="lines"
+              />
+              <div className="reveal-item">
+                <NavLink href={routes.bookNow}>
+                  <PrimaryButton
+                    className="block w-full md:w-auto md:inline-block "
+                    innerClassName="uppercase text-[16px] px-14"
+                  >
+                    Book Now
+                  </PrimaryButton>
+                </NavLink>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>
