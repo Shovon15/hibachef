@@ -10,9 +10,10 @@ type FormDataType ={
 
 type Props = {
   setCurrentStep: (step: number) => void;
+  handleStepChange: (stepId: number) => void;
 };
 
-const TableChairRental = ({ setCurrentStep }: Props) => {
+const TableChairRental = ({ setCurrentStep, handleStepChange }: Props) => {
   const [formData, setFormData] = useState<FormDataType>({
     personQty: 0,
     tipPercentage: 18,
@@ -27,13 +28,10 @@ const TableChairRental = ({ setCurrentStep }: Props) => {
   };
   const handleProceed = () => {
     console.log("Proceeding with:");
-    setCurrentStep(6);
+    handleStepChange(6);
   };
 
-  const handlePrevious = () => {
-    console.log("Going to previous step");
-    setCurrentStep(4);
-  };
+ 
   return (
     <div className="lg:pl-20">
       <MainTitle text1="Table/Chair" text2="Rental" />
@@ -84,7 +82,7 @@ const TableChairRental = ({ setCurrentStep }: Props) => {
         <div className="flex flex-col gap-4 sm:flex-row sm:gap-6 mt-10">
           <ButtonComponent
             text="PREVIOUS STEP"
-            onClick={handlePrevious}
+            onClick={() => handleStepChange(4)}
             className="flex-1"
             isbgRed={false}
           />

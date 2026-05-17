@@ -1,7 +1,7 @@
 "use client";
 import ContentContainer from "@/components/layout/container/contentContainer";
 import Tabs from "./components/Tabs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DateSlot from "./components/DateSlot";
 import PageBanner from "../../layout/container/PageBanner";
 import BookNowBg from "@/assets/images/book-banner.png";
@@ -21,28 +21,86 @@ const steps = [
 ];
 
 const BookNowIndexComponent = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+    postCode: "",
+  });
   const [currentStep, setCurrentStep] = useState(steps[0].id);
+  const [lastStep, setLastStep] = useState<any>(0); // for bill summary data
   const [selectedDate, setSelectedDate] = useState(0);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const handleSelectDate = (date: number) => {
+    // if date changed
+    if (selectedDate !== date) {
+      setSelectedTime(null);
+    }
+
+    setSelectedDate(date);
+  };
+
+  const handleSelectTime = (time: string) => {
+    setSelectedTime(time);
+
+    // auto next step
+    if (selectedDate !== null) {
+      setCurrentStep(2);
+    }
+  };
+
+  const handleStepChange = (stepId: number) => {
+    // only update lastStep when moving forward
+    if (stepId > currentStep) {
+      setLastStep(currentStep);
+    }
+
+    setCurrentStep(stepId);
+  };
+
+ 
   const renderStep = () => {
     switch (currentStep) {
       case 1:
         return (
           <DateSlot
             selectedDate={selectedDate}
-            setSelectedDate={setSelectedDate}
+            setSelectedDate={handleSelectDate}
             selectedTime={selectedTime}
-            setSelectedTime={setSelectedTime}
+            setSelectedTime={handleSelectTime}
           />
         );
       case 2:
-        return <YourInformation setCurrentStep={setCurrentStep} />;
+        return (
+          <YourInformation
+            setCurrentStep={setCurrentStep}
+            formData={formData}
+            setFormData={setFormData}
+            handleStepChange={handleStepChange}
+          />
+        );
       case 3:
-        return <HibachiPackages setCurrentStep={setCurrentStep} />;
+        return (
+          <HibachiPackages
+            setCurrentStep={setCurrentStep}
+            handleStepChange={handleStepChange}
+          />
+        );
       case 4:
-        return <SideOrders setCurrentStep={setCurrentStep} />;
+        return (
+          <SideOrders
+            setCurrentStep={setCurrentStep}
+            handleStepChange={handleStepChange}
+          />
+        );
       case 5:
-        return <TableChairRental setCurrentStep={setCurrentStep} />;
+        return (
+          <TableChairRental
+            setCurrentStep={setCurrentStep}
+            handleStepChange={handleStepChange}
+          />
+        );
       case 6:
         return <ThankYouSection />;
       default:
@@ -62,6 +120,7 @@ const BookNowIndexComponent = () => {
             steps={steps}
             currentStep={currentStep}
             setCurrentStep={setCurrentStep}
+            lastStep={lastStep}
           />
           <div className="hidden lg:block">
             <BillSummary currentStep={currentStep} />

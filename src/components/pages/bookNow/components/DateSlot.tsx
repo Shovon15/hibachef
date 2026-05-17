@@ -13,7 +13,7 @@ const timeSlots = [
 type Props = {
   selectedDate: number;
   setSelectedDate: (date: number) => void;
-  setSelectedTime: (time: string | null) => void;
+  setSelectedTime: ( time: string) => void;
   selectedTime: string | null;
 };
 
