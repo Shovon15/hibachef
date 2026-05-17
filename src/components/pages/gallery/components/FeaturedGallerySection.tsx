@@ -1,6 +1,5 @@
 "use client";
-import Heading2 from "@/components/common/typography/Heading2";
-import React, { useRef, useState } from "react";
+import React, { useRef, useCallback, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
   Navigation,
@@ -15,27 +14,62 @@ import "swiper/css/effect-coverflow";
 import "./style.css";
 import ImageComponent from "@/components/common/image";
 import { HighlightHeading } from "@/components/common/typography/HighlightHeading";
+import SliderArrowIcon from "@/assets/icons/SliderArrowIcon";
+import { cn } from "@/utils/helpers/cn";
+import { useIsMobile } from "@/hooks/useMobile";
 
 type Props = { data?: any; autoplay?: boolean };
 
+// ───────────────────────────────────────────────────────────────────────────
+
 const FeaturedGallerySection = ({ data, autoplay = false }: Props) => {
-  const [stretch, setStretch] = useState(-200);
-  const swiperRef = useRef<any>(null);
-  const sectionRef = useRef<HTMLDivElement | null>(null);
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const handleSwiper = useCallback((swiper: any) => {
+    // wait one tick so refs are attached to DOM
+    setTimeout(() => {
+      const nav = swiper.params.navigation;
+      if (nav && typeof nav !== "boolean") {
+        nav.prevEl = prevRef.current;
+        nav.nextEl = nextRef.current;
+      }
+      swiper.navigation.destroy();
+      swiper.navigation.init();
+      swiper.navigation.update();
+    }, 0);
+  }, []);
 
-  const handleSlideChange = (swiper: any) => {
-    setActiveIndex(swiper.realIndex);
+  const isMobile = useIsMobile();
+  // ─── exact design-spec constants ───────────────────────────────────────────
+  const ACTIVE_W = 519;
+  const MOBILE_ACTIVE_W = 259;
+  const ACTIVE_H = 390;
+  const MOBILE_ACTIVE_H = 390;
+  const ACTIVE_R = 10;
+  const MOBILE_ACTIVE_R = 10;
+
+  const INACTIVE_W = 191;
+  const MOBILE_INACTIVE_W = 191;
+  const INACTIVE_H = 340;
+  const MOBILE_INACTIVE_H = 340;
+  const INACTIVE_R = 6.4;
+  const MOBILE_INACTIVE_R = 6.4;
+
+  const ACTIVE_SIZE = {
+    width: isMobile ? MOBILE_ACTIVE_W : ACTIVE_W,
+    height: isMobile ? MOBILE_ACTIVE_H : ACTIVE_H,
+    radius: isMobile ? MOBILE_ACTIVE_R : ACTIVE_R,
+  };
+
+  const INACTIVE_SIZE = {
+    width: isMobile ? MOBILE_INACTIVE_W : INACTIVE_W,
+    height: isMobile ? MOBILE_INACTIVE_H : INACTIVE_H,
+    radius: isMobile ? MOBILE_INACTIVE_R : INACTIVE_R,
   };
 
   return (
-    <div
-      ref={sectionRef}
-      className="w-full mx-auto py-[2.79vw] bg-black overflow-hidden"
-    >
+    <div className="w-full mx-auto py-10 lg:py-[2.79vw] bg-black overflow-hidden">
       <div data-anim="title">
         <HighlightHeading
           text="Featured Gallery"
@@ -44,35 +78,21 @@ const FeaturedGallerySection = ({ data, autoplay = false }: Props) => {
           className="text-center mb-14 text-white"
         />
       </div>
-
-      <div className="relative h-[clamp(430px,36vw,520px)] xl:px-[3.125vw] 2xl:px-[5.21vw]">
+      <div className="relative h-[470px] xl:px-[3.125vw] 2xl:px-[5.21vw] ">
         <Swiper
-          ref={swiperRef}
-          onSlideChange={handleSlideChange}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-
-            // @ts-ignore
-            swiper.params.coverflowEffect.stretch = stretch;
-          }}
-          onBeforeInit={(swiper) => {
-            if (typeof swiper.params.navigation !== "boolean") {
-              //@ts-ignore
-              swiper.params.navigation.prevEl = prevRef.current;
-              //@ts-ignore
-              swiper.params.navigation.nextEl = nextRef.current;
-            }
-          }}
+          onSwiper={handleSwiper}
+          onSlideChange={() => {}}
           modules={[Navigation, Pagination, Autoplay, EffectCoverflow]}
           effect="coverflow"
-          grabCursor={false}
-          centeredSlides
+          grabCursor={true}
+          centeredSlides={true}
           slidesPerView="auto"
-          centeredSlidesBounds={false}
-          loop
-          watchSlidesProgress
-          observer
-          observeParents
+          loop={true}
+          watchSlidesProgress={true}
+          observer={true}
+          observeParents={true}
+          loopPreventsSliding={false}
+          speed={700}
           autoplay={
             autoplay
               ? {
@@ -82,93 +102,98 @@ const FeaturedGallerySection = ({ data, autoplay = false }: Props) => {
                 }
               : false
           }
-          speed={1200}
           coverflowEffect={{
             rotate: 0,
-            // stretch: stretch,
-            stretch: -100,
-            depth: 500,
-            modifier: 0.5,
+            stretch: 100,
+            depth: 120,
+            modifier: 1,
             slideShadows: false,
           }}
-          navigation={{
-            prevEl: ".swiper-button-prev-custom",
-            nextEl: ".swiper-button-next-custom",
-          }}
-          // navigation={{
-          //   prevEl: prevRef.current,
-          //   nextEl: nextRef.current,
-          // }}
           pagination={{
             clickable: true,
             bulletClass: "gallery-pagination-bullet",
             bulletActiveClass: "gallery-pagination-bullet-active",
           }}
-          className="product-slider-coverflow !h-full !py-[2.37vw] !pb-[70px]"
+          className="product-slider-coverflow !h-full !pb-[50px]"
         >
           {data.map((item: any, index: number) => (
             <SwiperSlide
               key={index}
-              className="!w-auto !h-full cursor-pointer select-none !flex items-center justify-center"
+              style={{ width: ACTIVE_W }}
+              className="!h-full !flex items-center justify-center cursor-pointer select-none"
             >
               {({ isActive }) => (
                 <div
-                  className={`
-                            !h-full cursor-pointer select-none flex items-center justify-center
-                            transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-                            ${isActive ? "w-[clamp(300px,36vw,519px)]" : "w-[151px]"}
-                          `}
+                  style={{
+                    // ── exact spec sizes ──────────────────────────────────
+                    width: isActive ? ACTIVE_SIZE.width : INACTIVE_SIZE.width,
+                    height: isActive
+                      ? ACTIVE_SIZE.height
+                      : INACTIVE_SIZE.height,
+                    borderRadius: isActive
+                      ? ACTIVE_SIZE.radius
+                      : INACTIVE_SIZE.radius,
+                    opacity: 1,
+                    // ── smooth morph ──────────────────────────────────────
+                    transition: [
+                      "width 700ms cubic-bezier(0.22,1,0.36,1)",
+                      "height 700ms cubic-bezier(0.22,1,0.36,1)",
+                      "border-radius 700ms ease",
+                    ].join(", "),
+                    overflow: "hidden",
+                    flexShrink: 0,
+                  }}
                 >
-                  <div
-                    className={`
-                          transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-                          ${
-                            isActive
-                              ? "w-[clamp(300px,36vw,519px)] h-[clamp(360px,27vw,390px)]"
-                              : "w-[151px] h-[340px]"
-                          }
-                        `}
-                  >
-                    <div className="w-full h-full relative flex flex-col overflow-hidden">
-                      <div className="relative w-full h-full mx-auto flex items-end justify-center">
-                        <ImageComponent
-                          src={item?.src || ""}
-                          alt={item?.alt}
-                          className={`
-                                  w-full h-full
-                                  transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-                                  ${
-                                    isActive
-                                      ? "object-contain max-w-full max-h-full card-image-shadow"
-                                      : "object-cover"
-                                  }
-                                `}
-                        />
-                      </div>
-                    </div>
-                  </div>
+                  <ImageComponent
+                    src={item?.src || ""}
+                    alt={item?.alt}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover", // cover for both states → no layout jump
+                      display: "block",
+                      transition: "opacity 700ms ease",
+                    }}
+                  />
                 </div>
               )}
             </SwiperSlide>
           ))}
         </Swiper>
-        {/* <div className="bg-gradient-to-r from-[#000000] to-[#00000000] absolute left-20 top-1/2 -translate-y-1/2 log h-44 "></div> */}
 
-        {/* <button
-          ref={prevRef}
-          type="button"
-          className="swiper-button-prev-custom absolute left-4 md:left-[20%] top-1/2 -translate-y-1/2 z-50 text-white size-12 bg-gradient-to-r from-[#000000] to-[#00000000] flex items-center justify-center"
-        >
-          {`left<<<<`}
-        </button>
+        {/* ── Prev Button ─────────────────────────────────────────────── */}
+        <div className="absolute left-0 h-full top-0 z-10 w-[18%] flex justify-end items-center pointer-events-none bg-gradient-to-l from-[#00000000] to-[#000000]">
+          <button
+            ref={prevRef}
+            className="
+              swiper-button-prev-custom pointer-events-auto
+              bg-white shadow rounded-full w-10 h-10
+              hidden lg:flex items-center justify-center p-3
+              text-[#E4002B] border border-[#E4002B]
+              hover:bg-[#E4002B] hover:text-white
+              transition-all disabled:opacity-50
+            "
+          >
+            <SliderArrowIcon />
+          </button>
+        </div>
 
-        <button
-          ref={nextRef}
-          type="button"
-          className="swiper-button-next-custom absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-50 text-white size-12 rounded-full bg-gradient-to-r from-[#00000000] to-[#000000] flex items-center justify-center"
-        >
-          {`right>>>>`}
-        </button> */}
+        {/* ── Next Button ─────────────────────────────────────────────── */}
+        <div className="absolute right-0 h-full top-0 z-10 w-[18%] flex justify-start items-center pointer-events-none bg-gradient-to-r from-[#00000000] to-[#000000]">
+          <button
+            ref={nextRef}
+            className="
+              swiper-button-next-custom pointer-events-auto
+              bg-white shadow rounded-full w-10 h-10
+              hidden lg:flex items-center justify-center p-3
+              text-[#E4002B] border border-[#E4002B]
+              hover:bg-[#E4002B] hover:text-white
+              transition-all disabled:opacity-50
+            "
+          >
+            <SliderArrowIcon className="rotate-180" />
+          </button>
+        </div>
       </div>
     </div>
   );
