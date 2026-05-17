@@ -40,7 +40,9 @@ const FeaturedGallerySection = ({ data, autoplay = false }: Props) => {
     }, 0);
   }, []);
 
-  const isMobile = useIsMobile();
+  const {isMobile, isMounted} = useIsMobile();
+  const shouldUseMobile = isMounted && isMobile;
+ 
   // ─── exact design-spec constants ───────────────────────────────────────────
   const ACTIVE_W = 519;
   const MOBILE_ACTIVE_W = 259;
@@ -57,15 +59,15 @@ const FeaturedGallerySection = ({ data, autoplay = false }: Props) => {
   const MOBILE_INACTIVE_R = 6.4;
 
   const ACTIVE_SIZE = {
-    width: isMobile ? MOBILE_ACTIVE_W : ACTIVE_W,
-    height: isMobile ? MOBILE_ACTIVE_H : ACTIVE_H,
-    radius: isMobile ? MOBILE_ACTIVE_R : ACTIVE_R,
+    width: shouldUseMobile ? MOBILE_ACTIVE_W : ACTIVE_W,
+    height: shouldUseMobile ? MOBILE_ACTIVE_H : ACTIVE_H,
+    radius: shouldUseMobile ? MOBILE_ACTIVE_R : ACTIVE_R,
   };
 
   const INACTIVE_SIZE = {
-    width: isMobile ? MOBILE_INACTIVE_W : INACTIVE_W,
-    height: isMobile ? MOBILE_INACTIVE_H : INACTIVE_H,
-    radius: isMobile ? MOBILE_INACTIVE_R : INACTIVE_R,
+    width: shouldUseMobile ? MOBILE_INACTIVE_W : INACTIVE_W,
+    height: shouldUseMobile ? MOBILE_INACTIVE_H : INACTIVE_H,
+    radius: shouldUseMobile ? MOBILE_INACTIVE_R : INACTIVE_R,
   };
 
   return (
