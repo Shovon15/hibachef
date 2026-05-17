@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import { cn } from "@/utils/helpers/cn";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -25,14 +26,10 @@ const ScrollReveal = ({
   className,
 }: ScrollRevealProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [mounted, setMounted] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted || !containerRef.current) return;
+    if (!containerRef.current) return;
 
     // Small delay to ensure children have rendered their final DOM
     const timer = setTimeout(() => {
@@ -47,22 +44,20 @@ const ScrollReveal = ({
         });
 
         // Select items marked with 'reveal-item'
-        const revealItems =
-          containerRef.current?.querySelectorAll(".reveal-item");
-
+        const revealItems = containerRef.current?.querySelectorAll(".reveal-item");
+        
         // If no items have the class, use direct children
-        const items =
-          revealItems && revealItems.length > 0
-            ? Array.from(revealItems)
-            : Array.from(containerRef.current?.children || []);
+        const items = (revealItems && revealItems.length > 0) 
+          ? Array.from(revealItems) 
+          : Array.from(containerRef.current?.children || []);
 
         items.forEach((item, index) => {
           const splitType = item.getAttribute("data-split");
 
           if (splitType === "chars") {
-            const split = new SplitText(item, {
+            const split = new SplitText(item, { 
               type: "chars,words,lines",
-              linesClass: "split-line",
+              linesClass: "split-line" 
             });
             tl.from(
               split.chars,
@@ -73,12 +68,12 @@ const ScrollReveal = ({
                 stagger: 0.02,
                 ease: "power3.out",
               },
-              index === 0 ? baseDelay : "-=0.6",
+              index === 0 ? baseDelay : "-=0.6"
             );
           } else if (splitType === "lines") {
-            const split = new SplitText(item, {
+            const split = new SplitText(item, { 
               type: "lines",
-              linesClass: "split-line",
+              linesClass: "split-line"
             });
             tl.from(
               split.lines,
@@ -89,7 +84,7 @@ const ScrollReveal = ({
                 stagger: 0.1,
                 ease: "power3.out",
               },
-              index === 0 ? baseDelay : "-=0.6",
+              index === 0 ? baseDelay : "-=0.6"
             );
           } else {
             tl.from(
@@ -100,26 +95,31 @@ const ScrollReveal = ({
                 duration: duration,
                 ease: "power3.out",
               },
-              index === 0 ? baseDelay : "-=0.6",
+              index === 0 ? baseDelay : "-=0.6"
             );
           }
         });
       }, containerRef);
 
+      // Now that GSAP has 'set' the initial animated states (autoAlpha: 0),
+      // we can make the container visible.
+      setIsReady(true);
       ScrollTrigger.refresh();
 
       return () => {
         ctx.revert();
       };
-    }, 150); // Slightly longer delay for safety
+    }, 200);
 
     return () => clearTimeout(timer);
-  }, [mounted, baseDelay, duration, yOffset]);
-
-  if (!mounted) return null;
+  }, [baseDelay, duration, yOffset]);
 
   return (
-    <div ref={containerRef} className={className}>
+    <div 
+      ref={containerRef} 
+      className={cn(className, !isReady && "invisible")}
+      data-ready={isReady}
+    >
       {children}
     </div>
   );

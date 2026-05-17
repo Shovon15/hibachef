@@ -103,6 +103,8 @@ export const HighlightHeading = ({
     };
   }, [mounted, text, highlight, animate]);
 
+  // Always return the structure so ScrollReveal can find it and SplitText can measure it.
+  // The 'invisible' class on ScrollReveal will handle hiding it until GSAP is ready.
   if (!text) return null;
 
   return (
