@@ -10,20 +10,19 @@ import { useIsMobile } from "@/hooks/useMobile";
 import Paragraph from "@/components/common/typography/Paragraph";
 import ScrollReveal from "@/components/common/animations/ScrollReveal";
 
-type Props = {
-  data?: any;
-};
-
-const HomeBanner = ({ data }: Props) => {
+const HomeBanner = () => {
   const { isMobile, isMounted } = useIsMobile();
   const backgroundShape = isMobile ? bannerBgMobile : bannerBg;
 
   const videoUrl = "/home-banner-video.mp4";
 
   return (
-    <div className="relative min-h-screen">
+    <section
+      className="relative min-h-screen"
+      aria-label="Hibachef home banner"
+    >
       {isMounted && (
-        <div className="absolute bottom-0 z-20">
+        <div className="absolute bottom-0 z-20 pointer-events-none">
           <ImageComponent src={backgroundShape} alt="banner-background" />
         </div>
       )}
@@ -44,7 +43,7 @@ const HomeBanner = ({ data }: Props) => {
 
         <div className="absolute top-0 h-full  md:inset-0 flex gap-5 items-center z-30 pt-[5%]">
           <div className="w-full px-[5.13vw] md:px-[8.599vw]">
-            <ScrollReveal className="md:max-w-4xl text-white space-y-10">
+            <ScrollReveal className="md:max-w-4xl text-white space-y-5">
               <HighlightHeading
                 text="we bring Hibachef to your backyard"
                 highlight={["Hibachef"]}
@@ -56,8 +55,7 @@ const HomeBanner = ({ data }: Props) => {
 
               <Paragraph
                 className="reveal-item max-w-2xl"
-                content={`Sed ut maecenas dolor leo. Enim sit quis tincidunt blandit. Quis
-                nunc tellus orci ultricies scelerisque tempor hac.`}
+                content="Sed ut maecenas dolor leo. Enim sit quis tincidunt blandit. Quis nunc tellus orci ultricies scelerisque tempor hac."
                 animate={false}
                 data-split="lines"
               />
@@ -75,7 +73,7 @@ const HomeBanner = ({ data }: Props) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

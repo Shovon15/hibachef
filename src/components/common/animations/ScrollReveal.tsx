@@ -29,14 +29,17 @@ const ScrollReveal = ({
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+    if (!container) return;
+
+    let ctx: gsap.Context | undefined;
 
     // Small delay to ensure children have rendered their final DOM
     const timer = setTimeout(() => {
-      const ctx = gsap.context(() => {
+      ctx = gsap.context(() => {
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: containerRef.current,
+            trigger: container,
             start: "top 90%",
             toggleActions: "play none none none",
             once: true,
@@ -44,20 +47,21 @@ const ScrollReveal = ({
         });
 
         // Select items marked with 'reveal-item'
-        const revealItems = containerRef.current?.querySelectorAll(".reveal-item");
-        
+        const revealItems = container.querySelectorAll(".reveal-item");
+
         // If no items have the class, use direct children
-        const items = (revealItems && revealItems.length > 0) 
-          ? Array.from(revealItems) 
-          : Array.from(containerRef.current?.children || []);
+        const items =
+          revealItems.length > 0
+            ? Array.from(revealItems)
+            : Array.from(container.children);
 
         items.forEach((item, index) => {
           const splitType = item.getAttribute("data-split");
 
           if (splitType === "chars") {
-            const split = new SplitText(item, { 
+            const split = new SplitText(item, {
               type: "chars,words,lines",
-              linesClass: "split-line" 
+              linesClass: "split-line",
             });
             tl.from(
               split.chars,
@@ -71,9 +75,9 @@ const ScrollReveal = ({
               index === 0 ? baseDelay : "-=0.6"
             );
           } else if (splitType === "lines") {
-            const split = new SplitText(item, { 
+            const split = new SplitText(item, {
               type: "lines",
-              linesClass: "split-line"
+              linesClass: "split-line",
             });
             tl.from(
               split.lines,
@@ -105,18 +109,17 @@ const ScrollReveal = ({
       // we can make the container visible.
       setIsReady(true);
       ScrollTrigger.refresh();
-
-      return () => {
-        ctx.revert();
-      };
     }, 200);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      ctx?.revert();
+    };
   }, [baseDelay, duration, yOffset]);
 
   return (
-    <div 
-      ref={containerRef} 
+    <div
+      ref={containerRef}
       className={cn(className, !isReady && "invisible")}
       data-ready={isReady}
     >

@@ -5,6 +5,7 @@ import GoogleLogo from "@/assets/icons/GoogleLogo";
 import NavLink from "../link/NavLink";
 import TestimonialSlider from "./TestimonialSlider";
 import { HighlightHeading } from "../typography/HighlightHeading";
+import ScrollReveal from "../animations/ScrollReveal";
 
 const Review = ({ mainTitle, spanTitle, className = "" }: any) => {
   return (
@@ -12,9 +13,10 @@ const Review = ({ mainTitle, spanTitle, className = "" }: any) => {
       <HighlightHeading
         text="Customer Reviews"
         highlight={["Reviews"]}
-        highlightClassName="text-primary"
+        highlightClassName="text-primary  "
         className="lg:max-w-[85vw] xl:max-w-[60vw] 2xl:max-w-[50vw] mx-auto text-center leading-[100%]"
       />
+
       {/* <MainTitle text1={mainTitle} text2={spanTitle} /> */}
       <div className="bg-[#F2F2F2] rounded-3xl p-6 flex flex-col lg:flex-row justify-between items-center mt-10 lg:mt-16 gap-8">
         <div>

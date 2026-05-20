@@ -16,7 +16,7 @@ type Props = {
 const HomeComponent = ({ data }: Props) => {
   return (
     <ContentContainer disablePR disablePL className=" !bg-transparent">
-      <HomeBanner data={""} />
+      <HomeBanner />
       <DiningSection />
 
       <MenuSection />
